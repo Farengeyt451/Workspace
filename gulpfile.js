@@ -52,7 +52,7 @@ var config = {
 
 //Создаем задание собрать HTML
 gulp.task('html:build', function () {
-	return gulp.src(path.src.html)
+	gulp.src(path.src.html)
 			.pipe(plumber())
 			.pipe(rigger())
 			.pipe(pug({
@@ -64,7 +64,7 @@ gulp.task('html:build', function () {
 
 //Создаем задание собрать JavaScript
 gulp.task('js:build', function () {
-	return gulp.src(path.src.js)
+	gulp.src(path.src.js)
 			.pipe(plumber())
 			.pipe(rigger())
 			.pipe(sourcemaps.init())
@@ -76,7 +76,7 @@ gulp.task('js:build', function () {
 
 //Создаем задание собрать SCSS
 gulp.task('style:build', function () {
-	return gulp.src(path.src.style)
+	gulp.src(path.src.style)
 			.pipe(plumber())
 			.pipe(sourcemaps.init())
 			.pipe(sass())
@@ -89,7 +89,7 @@ gulp.task('style:build', function () {
 
 //Создаем задание собрать картинки
 gulp.task('image:build', function () {
-	return gulp.src(path.src.img)
+	gulp.src(path.src.img)
 			.pipe(plumber())
 			//.pipe(imagemin ())
 			.pipe(gulp.dest(path.build.img))
@@ -98,7 +98,7 @@ gulp.task('image:build', function () {
 
 //Создаем задание собрать шрифты
 gulp.task('fonts:build', function() {
-	return gulp.src(path.src.fonts)
+	gulp.src(path.src.fonts)
 			.pipe(plumber())
 			.pipe(gulp.dest(path.build.fonts))
 });
@@ -133,12 +133,12 @@ gulp.task('watch', function(){
 
 //Создаем задание для запуска Dev сервера
 gulp.task('webserver', function () {
-	return browserSync(config);
+	browserSync(config);
 });
 
 //Создаем задание для очистки папки build
 gulp.task('clean', function (cb) {
-	return del(path.clean, cb);
+	del(path.clean, cb);
 })
 
 //Создаем задание для запуска всей сборки, Dev сервера и gulp-watch
