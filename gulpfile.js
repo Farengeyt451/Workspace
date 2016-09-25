@@ -101,12 +101,12 @@ gulp.task('style:build', function () {
 // 			.pipe(reload({stream: true}));
 // });
 
-// //Создаем задание собрать шрифты
-// gulp.task('fonts:build', function() {
-// 	gulp.src(path.src.fonts)
-// 			.pipe(plumber())
-// 			.pipe(gulp.dest(path.build.fonts))
-// });
+//Создаем задание собрать шрифты
+gulp.task('fonts:build', function() {
+	return gulp.src(path.src.fonts, {since: gulp.lastRun('fonts:build')})
+			.pipe(plumber())
+			.pipe(gulp.dest(path.build.fonts))
+});
 
 // //Создаем задание для всей сборки
 // gulp.task('build', [
@@ -143,13 +143,22 @@ gulp.task('style:build', function () {
 // });
 
 //Создаем задание для очистки папки build
-gulp.task('clean', function (cb) {
-	return del(path.clean, cb);
+gulp.task('clean', function () {
+	return del(path.clean);
 })
 
 gulp.task('build', gulp.series(
 	'clean',
 	gulp.parallel('html:build', 'style:build')));
 
+gulp.task('watch', function(){
+	gulp.watch([path.watch.html], gulp.series('html:build'));
+	gulp.watch([path.watch.style], gulp.series('style:build'));
+	// gulp.watch([path.watch.js], gulp.series('js:build'));
+	// gulp.watch([path.watch.img], gulp.series('img:build'));
+	gulp.watch([path.watch.fonts], gulp.series('fonts:build'));
+});
+
+gulp.task('default', gulp.series('build', 'watch'));
 // //Создаем задание для запуска всей сборки, Dev сервера и gulp-watch
 // gulp.task('default', ['build', 'webserver', 'watch']);
