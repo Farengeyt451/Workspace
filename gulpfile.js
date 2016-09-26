@@ -64,7 +64,7 @@ gulp.task('html:build', function () {
 			pretty: true
 		}))		
 		.pipe(gulp.dest(path.build.html))
-//		.pipe(reload({stream: true}));
+		.pipe(reload({stream: true}));
 });
 
 //Создаем задание собрать JavaScript
