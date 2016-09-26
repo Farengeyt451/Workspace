@@ -13,8 +13,8 @@ const rigger = require('gulp-rigger');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
-const reload = browserSync.reload;
 const gulpIf = require('gulp-if');
+const reload = browserSync.reload;
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == "development";
 
