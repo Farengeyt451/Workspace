@@ -4,16 +4,19 @@
 const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require("browser-sync");
-const cssmin = require('gulp-minify-css');
+const cached = require('gulp-cached');
+const cleancss = require('gulp-clean-css');
+const debug = require('gulp-debug');
 const del = require('del');
+const gulpIf = require('gulp-if');
 const imagemin = require('gulp-imagemin');
+const newer = require('gulp-newer');
 const plumber = require('gulp-plumber');
 const pug = require('gulp-pug');
 const rigger = require('gulp-rigger');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
-const gulpIf = require('gulp-if');
 const reload = browserSync.reload;
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == "development";
@@ -26,6 +29,13 @@ var path = {
 		css: 'build/css/',
 		img: 'build/img/',
 		fonts: 'build/fonts/'
+	},
+	production: {
+		html: 'production/',
+		js: 'production/js/',
+		css: 'production/css/',
+		img: 'production/img/',
+		fonts: 'production/fonts/'
 	},
 	src: {						//Указываем пути откуда брать исходники
 		html: 'src/index.pug',
@@ -41,7 +51,11 @@ var path = {
 		img: 'src/img/**/*.*',
 		fonts: 'src/fonts/**/*.*'
 	},
-	clean: 'build/*'
+	clean: {
+		build: 'build/*',
+		production: 'production/*'
+	}
+	// clean: 'build/*'
 };
 
 //Создаем переменную с настройками Dev сервера:
@@ -49,7 +63,7 @@ var config = {
 	server: {
 		baseDir: "./build"
 	},
-	tunnel: false,
+	//tunnel: false,
 	host: 'localhost',
 	port: 9000,
 	logPrefix: "InvaderZ"
@@ -68,16 +82,16 @@ gulp.task('html:build', function () {
 });
 
 //Создаем задание собрать JavaScript
-// gulp.task('js:build', function () {
-// 	gulp.src(path.src.js)
-// 			.pipe(plumber())
-// 			.pipe(rigger())
-// 			.pipe(sourcemaps.init())
-// 			 // .pipe(uglify())
-// 			.pipe(sourcemaps.write())
-// 			.pipe(gulp.dest(path.build.js))
-// 			.pipe(reload({stream: true}));
-// });
+gulp.task('js:build', function () {
+	return gulp.src(path.src.js)
+		.pipe(plumber())
+		.pipe(rigger())
+		.pipe(gulpIf(isDevelopment, sourcemaps.init()))
+		.pipe(gulpIf(!isDevelopment, uglify()))
+		.pipe(gulpIf(isDevelopment, sourcemaps.write()))
+		.pipe(gulp.dest(path.build.js))
+		.pipe(reload({stream: true}));
+});
 
 //Создаем задание собрать SCSS
 gulp.task('style:build', function () {
@@ -86,36 +100,34 @@ gulp.task('style:build', function () {
 		.pipe(gulpIf(isDevelopment, sourcemaps.init()))
 		.pipe(sass())
 		.pipe(autoprefixer())
-		// .pipe(cssmin())
+		.pipe(gulpIf(!isDevelopment, cleancss()))
 		.pipe(gulpIf(isDevelopment, sourcemaps.write()))
 		.pipe(gulp.dest(path.build.css))
 		.pipe(reload({stream: true}));
 })
 
-// //Создаем задание собрать картинки
-// gulp.task('image:build', function () {
-// 	gulp.src(path.src.img)
-// 			.pipe(plumber())
-// 			//.pipe(imagemin ())
-// 			.pipe(gulp.dest(path.build.img))
-// 			.pipe(reload({stream: true}));
-// });
+//Создаем задание собрать картинки
+gulp.task('img:build', function () {
+	return gulp.src(path.src.img, {since: gulp.lastRun('img:build')})
+		.pipe(plumber())
+		.pipe(newer(path.build.img))
+		.pipe(debug())
+		.pipe(gulpIf(!isDevelopment, imagemin ()))
+		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.img), gulp.dest(path.production.img)))
+		.pipe(reload({stream: true}));
+});
 
 //Создаем задание собрать шрифты
 gulp.task('fonts:build', function() {
 	return gulp.src(path.src.fonts, {since: gulp.lastRun('fonts:build')})
-			.pipe(plumber())
-			.pipe(gulp.dest(path.build.fonts))
+		.pipe(newer(path.build.fonts))
+		.pipe(debug())
+		.pipe(plumber())
+		.pipe(gulp.dest(path.build.fonts))
 });
 
 // //Создаем задание для всей сборки
-// gulp.task('build', [
-// 	'html:build',
-// 	'js:build',
-// 	'style:build',
-// 	'fonts:build',
-// 	'image:build'
-// ]);
+gulp.task('build', gulp.parallel('html:build', 'js:build', 'style:build', 'img:build', 'fonts:build'));
 
 
 // //Создаем задание для автоматической сборки при изменении файла
@@ -143,22 +155,25 @@ gulp.task('fonts:build', function() {
 // });
 
 //Создаем задание для очистки папки build
-gulp.task('clean', function () {
-	return del(path.clean);
-})
+gulp.task('build:clean', function () {
+	return del(path.clean.build);
+});
 
-gulp.task('build', gulp.series(
-	'clean',
-	gulp.parallel('html:build', 'style:build')));
+//Создаем задание для очистки папки production
+gulp.task('production:clean', function () {
+	return del(path.clean.production);
+});
+
+gulp.task('clean', gulp.parallel('build:clean', 'production:clean'));
 
 gulp.task('watch', function(){
 	gulp.watch([path.watch.html], gulp.series('html:build'));
 	gulp.watch([path.watch.style], gulp.series('style:build'));
-	// gulp.watch([path.watch.js], gulp.series('js:build'));
-	// gulp.watch([path.watch.img], gulp.series('img:build'));
+	gulp.watch([path.watch.js], gulp.series('js:build'));
+	gulp.watch([path.watch.img], gulp.series('img:build'));
 	gulp.watch([path.watch.fonts], gulp.series('fonts:build'));
 });
 
-gulp.task('default', gulp.series('build', 'watch'));
 // //Создаем задание для запуска всей сборки, Dev сервера и gulp-watch
 // gulp.task('default', ['build', 'webserver', 'watch']);
+gulp.task('default', gulp.series('build', 'watch'));
