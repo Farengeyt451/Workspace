@@ -3,7 +3,7 @@
 // Подключаем gulp и плагины
 const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
-const browserSync = require("browser-sync");
+const bs = require("browser-sync").create();
 const cached = require('gulp-cached');
 const cleancss = require('gulp-clean-css');
 const debug = require('gulp-debug');
@@ -17,7 +17,6 @@ const rigger = require('gulp-rigger');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
-const reload = browserSync.reload;
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == "development";
 
@@ -57,16 +56,6 @@ var path = {
 	}
 };
 
-//Создаем переменную с настройками Dev сервера:
-var config = {
-	server: {
-		baseDir: "./build"
-	},
-	host: 'localhost',
-	port: 9000,
-	logPrefix: "InvaderZ"
-};
-
 //Создаем задание собрать HTML
 gulp.task('html:build', function () {
 	return gulp.src(path.src.html)
@@ -76,7 +65,7 @@ gulp.task('html:build', function () {
 			pretty: true
 		}))		
 		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.html), gulp.dest(path.production.html)))
-		.pipe(reload({stream: true}));
+		.pipe(bs.stream());
 });
 
 //Создаем задание собрать JavaScript
@@ -88,7 +77,7 @@ gulp.task('js:build', function () {
 		.pipe(gulpIf(!isDevelopment, uglify()))
 		.pipe(gulpIf(isDevelopment, sourcemaps.write()))
 		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.js), gulp.dest(path.production.js)))
-		.pipe(reload({stream: true}));
+		.pipe(bs.stream());
 });
 
 //Создаем задание собрать SCSS
@@ -101,8 +90,8 @@ gulp.task('style:build', function () {
 		.pipe(gulpIf(!isDevelopment, cleancss()))
 		.pipe(gulpIf(isDevelopment, sourcemaps.write()))
 		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.css), gulp.dest(path.production.css)))
-		.pipe(reload({stream: true}));
-})
+		.pipe(bs.stream());
+});
 
 //Создаем задание собрать картинки
 gulp.task('img:build', function () {
@@ -112,7 +101,7 @@ gulp.task('img:build', function () {
 		.pipe(debug({title: 'Images build:'}))
 		.pipe(gulpIf(!isDevelopment, imagemin ()))
 		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.img), gulp.dest(path.production.img)))
-		.pipe(reload({stream: true}));
+		.pipe(bs.stream());
 });
 
 //Создаем задание собрать шрифты
@@ -122,7 +111,7 @@ gulp.task('font:build', function() {
 		.pipe(gulpIf(isDevelopment, newer(path.build.font), newer(path.production.font)))
 		.pipe(debug({title: 'Font build:'}))
 		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.font), gulp.dest(path.production.font)))
-		.pipe(reload({stream: true}));
+		.pipe(bs.stream());
 });
 
 //Создаем задание для всей сборки
@@ -149,10 +138,15 @@ gulp.task('build', gulp.parallel('html:build', 'js:build', 'style:build', 'img:b
 // });
 
 //Создаем задание для запуска Dev сервера
-gulp.task('webserver', function () {
-	browserSync(config);
+gulp.task('webserver', function() {
+	bs.init({
+		server: {
+			baseDir: "./build"
+		},
+		port: 9000,
+		logPrefix: "InvaderZ" 
+		});
 });
-
 //Создаем задание для очистки папки build
 gulp.task('build:clean', function () {
 	return del(path.clean.build);
