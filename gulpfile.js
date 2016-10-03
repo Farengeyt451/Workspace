@@ -3,7 +3,7 @@
 // Подключаем gulp и плагины
 const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
-const bs = require("browser-sync").create();
+const bs = require('browser-sync').create();
 const cached = require('gulp-cached');
 const cleancss = require('gulp-clean-css');
 const debug = require('gulp-debug');
@@ -18,7 +18,7 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 
-const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == "development";
+const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
 //Создаем перемнные где прописаны все пути
 var path = {
@@ -141,10 +141,11 @@ gulp.task('build', gulp.parallel('html:build', 'js:build', 'style:build', 'img:b
 gulp.task('webserver', function() {
 	bs.init({
 		server: {
-			baseDir: "./build"
+			baseDir: './build'
 		},
 		port: 9000,
-		logPrefix: "InvaderZ" 
+		logPrefix: 'InvaderZ',
+		browser: ['google-chrome', 'firefox']
 		});
 });
 //Создаем задание для очистки папки build
