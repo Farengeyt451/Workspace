@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // Подключаем gulp и плагины
 const gulp = require('gulp');
@@ -62,7 +62,6 @@ var config = {
 	server: {
 		baseDir: "./build"
 	},
-	//tunnel: false,
 	host: 'localhost',
 	port: 9000,
 	logPrefix: "InvaderZ"
@@ -149,10 +148,10 @@ gulp.task('build', gulp.parallel('html:build', 'js:build', 'style:build', 'img:b
 // 	});
 // });
 
-// //Создаем задание для запуска Dev сервера
-// gulp.task('webserver', function () {
-// 	browserSync(config);
-// });
+//Создаем задание для запуска Dev сервера
+gulp.task('webserver', function () {
+	browserSync(config);
+});
 
 //Создаем задание для очистки папки build
 gulp.task('build:clean', function () {
@@ -177,4 +176,4 @@ gulp.task('watch', function(){
 
 // //Создаем задание для запуска всей сборки, Dev сервера и gulp-watch
 // gulp.task('default', ['build', 'webserver', 'watch']);
-gulp.task('default', gulp.series('build', 'watch'));
+gulp.task('default', gulp.series('build', gulp.parallel('webserver', 'watch')));
