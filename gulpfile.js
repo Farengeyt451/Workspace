@@ -1,6 +1,6 @@
 'use strict';
 
-// Подключаем gulp и плагины
+//Подключаем gulp и плагины
 const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const bs = require('browser-sync').create();
@@ -117,26 +117,6 @@ gulp.task('font:build', function() {
 //Создаем задание для всей сборки
 gulp.task('build', gulp.parallel('html:build', 'js:build', 'style:build', 'img:build', 'font:build'));
 
-
-// //Создаем задание для автоматической сборки при изменении файла
-// gulp.task('watch', function(){
-// 	gulp.watch([path.watch.html], function(event, cb) {
-// 		gulp.start('html:build');
-// 	});
-// 	gulp.watch([path.watch.style], function(event, cb) {
-// 		gulp.start('style:build');
-// 	});
-// 	gulp.watch([path.watch.js], function(event, cb) {
-// 		gulp.start('js:build');
-// 	});
-// 	gulp.watch([path.watch.img], function(event, cb) {
-// 		gulp.start('image:build');
-// 	});
-// 	gulp.watch([path.watch.font], function(event, cb) {
-// 		gulp.start('font:build');
-// 	});
-// });
-
 //Создаем задание для запуска Dev сервера
 gulp.task('webserver', function() {
 	bs.init({
@@ -148,6 +128,7 @@ gulp.task('webserver', function() {
 		browser: ['google-chrome', 'firefox']
 		});
 });
+
 //Создаем задание для очистки папки build
 gulp.task('build:clean', function () {
 	return del(path.clean.build);
@@ -169,6 +150,5 @@ gulp.task('watch', function(){
 	gulp.watch([path.watch.font], gulp.series('font:build'));
 });
 
-// //Создаем задание для запуска всей сборки, Dev сервера и gulp-watch
-// gulp.task('default', ['build', 'webserver', 'watch']);
+//Создаем задание для запуска всей сборки, Dev сервера и gulp-watch
 gulp.task('default', gulp.series('build', gulp.parallel('webserver', 'watch')));
