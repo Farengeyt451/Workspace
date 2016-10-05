@@ -1,3 +1,12 @@
 @import "partials/_header.scss";
 @import "partials/_content.scss";
 @import "partials/_footer.scss";
+
+body {
+	background-color: #FBFFE7;
+	font-size: 30px;
+}
+
+:fullscreen a {
+    display: flex
+}

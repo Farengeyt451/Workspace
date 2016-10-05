@@ -1,10 +1,9 @@
 'use strict';
 
-//Подключаем gulp и плагины
+// Подключаем gulp и плагины
 const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const bs = require('browser-sync').create();
-const cached = require('gulp-cached');
 const cleancss = require('gulp-clean-css');
 const debug = require('gulp-debug');
 const del = require('del');
@@ -18,49 +17,57 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 
+// Создаем переменную окружения NODE_ENV
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
-//Создаем перемнные где прописаны все пути
+// Создаем перемнные где прописаны все пути
 var path = {
-	build: {					//Указываем куда складывать готовые после сборки файлы (build)
+	build: {					// Указываем куда перемещать готовые после сборки файлы (build)
 		html: 'build/',
 		js: 'build/js/',
 		css: 'build/css/',
 		img: 'build/img/',
 		font: 'build/font/'
 	},
-	production: {				//Указываем куда складывать готовые после сборки файлы (production)
+	production: {				// Указываем куда перемещать готовые после сборки файлы (production)
 		html: 'production/',
 		js: 'production/js/',
 		css: 'production/css/',
 		img: 'production/img/',
 		font: 'production/font/'
 	},
-	src: {						//Указываем пути откуда брать исходники
+	src: {						// Указываем пути откуда брать исходники
 		html: 'src/index.pug',
 		js: 'src/js/main.js',
 		style: 'src/style/main.scss',
 		img: 'src/img/**/*.*',
 		font: 'src/font/**/*.*'
 	},
-	watch: {					//Указываем за изменением каких файлов наблюдать
+	watch: {					// Указываем за изменением каких файлов наблюдать
 		html: 'src/**/*.pug',
 		js: 'src/js/**/*.js',
 		style: 'src/style/**/*.scss',
 		img: 'src/img/**/*.*',
 		font: 'src/font/**/*.*'
 	},
-	clean: {				//Указываем пути очистки директорий build и production
+	clean: {				// Указываем пути очистки директорий build и production
 		build: 'build/*',
 		production: 'production/*'
 	}
 };
 
-//Создаем задание собрать HTML
+// Создаем перемнную настроек Dev сервера
+var devconf = {
+		server: 'build',
+		port: 9000,
+		logPrefix: 'InvaderZ',
+		browser: ['google-chrome', 'firefox']
+};
+
+// Создаем задание собрать HTML
 gulp.task('html:build', function () {
 	return gulp.src(path.src.html)
 		.pipe(plumber())
-		.pipe(rigger())
 		.pipe(pug({
 			pretty: true
 		}))		
@@ -68,7 +75,7 @@ gulp.task('html:build', function () {
 		.pipe(bs.stream());
 });
 
-//Создаем задание собрать JavaScript
+// Создаем задание собрать JavaScript
 gulp.task('js:build', function () {
 	return gulp.src(path.src.js)
 		.pipe(plumber())
@@ -80,12 +87,12 @@ gulp.task('js:build', function () {
 		.pipe(bs.stream());
 });
 
-//Создаем задание собрать SCSS
+// Создаем задание собрать SCSS
 gulp.task('style:build', function () {
 	return gulp.src(path.src.style)
 		.pipe(plumber())
 		.pipe(gulpIf(isDevelopment, sourcemaps.init()))
-		.pipe(sass())
+		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer())
 		.pipe(gulpIf(!isDevelopment, cleancss()))
 		.pipe(gulpIf(isDevelopment, sourcemaps.write()))
@@ -93,7 +100,7 @@ gulp.task('style:build', function () {
 		.pipe(bs.stream());
 });
 
-//Создаем задание собрать картинки
+// Создаем задание собрать картинки
 gulp.task('img:build', function () {
 	return gulp.src(path.src.img, {since: gulp.lastRun('img:build')})
 		.pipe(plumber())
@@ -104,7 +111,7 @@ gulp.task('img:build', function () {
 		.pipe(bs.stream());
 });
 
-//Создаем задание собрать шрифты
+// Создаем задание собрать шрифты
 gulp.task('font:build', function() {
 	return gulp.src(path.src.font, {since: gulp.lastRun('font:build')})
 		.pipe(plumber())
@@ -114,34 +121,28 @@ gulp.task('font:build', function() {
 		.pipe(bs.stream());
 });
 
-//Создаем задание для всей сборки
+// Создаем задание для всей сборки
 gulp.task('build', gulp.parallel('html:build', 'js:build', 'style:build', 'img:build', 'font:build'));
 
-//Создаем задание для запуска Dev сервера
-gulp.task('webserver', function() {
-	bs.init({
-		server: {
-			baseDir: './build'
-		},
-		port: 9000,
-		logPrefix: 'InvaderZ',
-		browser: ['google-chrome', 'firefox']
-		});
-});
-
-//Создаем задание для очистки папки build
+// Создаем задание для очистки папки build
 gulp.task('build:clean', function () {
 	return del(path.clean.build);
 });
 
-//Создаем задание для очистки папки production
+// Создаем задание для очистки папки production
 gulp.task('production:clean', function () {
 	return del(path.clean.production);
 });
 
-//Создаем задание для очистки папок build и production
+// Создаем задание для очистки папок build и production
 gulp.task('clean', gulp.parallel('build:clean', 'production:clean'));
 
+// Создаем задание для запуска Dev сервера
+gulp.task('webserver', function() {
+	bs.init(devconf);
+});
+
+// Создаем задание для слежения за файлами
 gulp.task('watch', function(){
 	gulp.watch([path.watch.html], gulp.series('html:build'));
 	gulp.watch([path.watch.style], gulp.series('style:build'));
@@ -150,5 +151,5 @@ gulp.task('watch', function(){
 	gulp.watch([path.watch.font], gulp.series('font:build'));
 });
 
-//Создаем задание для запуска всей сборки, Dev сервера и gulp-watch
+// Создаем задание для запуска всей сборки, Dev сервера и gulp-watch
 gulp.task('default', gulp.series('build', gulp.parallel('webserver', 'watch')));
