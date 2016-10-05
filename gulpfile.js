@@ -64,6 +64,14 @@ var devconf = {
 		browser: ['google-chrome', 'firefox']
 };
 
+var prodconf = {
+		server: 'production',
+		port: 9000,
+		logPrefix: 'InvaderZ',
+		browser: ['google-chrome', 'firefox'],
+		tunnel: true
+};
+
 // Создаем задание собрать HTML
 gulp.task('html:build', function () {
 	return gulp.src(path.src.html)
@@ -139,7 +147,7 @@ gulp.task('clean', gulp.parallel('build:clean', 'production:clean'));
 
 // Создаем задание для запуска Dev сервера
 gulp.task('webserver', function() {
-	bs.init(devconf);
+	bs.init(gulpIf(isDevelopment, devconf, prodconf));
 });
 
 // Создаем задание для слежения за файлами
