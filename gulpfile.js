@@ -56,7 +56,7 @@ var path = {
 	}
 };
 
-// Создаем перемнную настроек Dev сервера
+// Создаем перемнную настроек Dev сервера (build)
 var devconf = {
 		server: 'build',
 		port: 9000,
@@ -64,6 +64,7 @@ var devconf = {
 		browser: ['google-chrome', 'firefox']
 };
 
+// Создаем перемнную настроек Dev сервера (production)
 var prodconf = {
 		server: 'production',
 		port: 9000,
