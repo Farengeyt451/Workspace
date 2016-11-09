@@ -61,7 +61,8 @@ var devconf = {
 		server: 'build',
 		port: 9000,
 		logPrefix: 'InvaderZ',
-		browser: ['google-chrome', 'firefox']
+		browser: ['google-chrome', 'firefox'],
+		notify: false
 };
 
 // Создаем перемнную настроек Dev сервера (production)
@@ -70,7 +71,8 @@ var prodconf = {
 		port: 9000,
 		logPrefix: 'InvaderZ',
 		browser: ['google-chrome', 'firefox'],
-		tunnel: true
+		tunnel: true,
+		notify: false
 };
 
 // Создаем задание собрать HTML
