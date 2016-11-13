@@ -27,28 +27,28 @@ var path = {
 		js: 'build/js/',
 		css: 'build/css/',
 		img: 'build/img/',
-		font: 'build/font/'
+		fonts: 'build/fonts/'
 	},
 	production: {				// Указываем куда перемещать готовые после сборки файлы (production)
 		html: 'production/',
 		js: 'production/js/',
 		css: 'production/css/',
 		img: 'production/img/',
-		font: 'production/font/'
+		fonts: 'production/fonts/'
 	},
 	src: {						// Указываем пути откуда брать исходники
 		html: 'src/index.pug',
 		js: 'src/js/main.js',
 		style: 'src/style/main.scss',
 		img: 'src/img/**/*.*',
-		font: 'src/font/**/*.*'
+		fonts: 'src/fonts/**/*.*'
 	},
 	watch: {					// Указываем за изменением каких файлов наблюдать
 		html: 'src/**/*.pug',
 		js: 'src/js/**/*.js',
 		style: 'src/style/**/*.scss',
 		img: 'src/img/**/*.*',
-		font: 'src/font/**/*.*'
+		fonts: 'src/fonts/**/*.*'
 	},
 	clean: {				// Указываем пути очистки директорий build и production
 		build: 'build/*',
@@ -123,17 +123,17 @@ gulp.task('img:build', function () {
 });
 
 // Создаем задание собрать шрифты
-gulp.task('font:build', function() {
-	return gulp.src(path.src.font, {since: gulp.lastRun('font:build')})
+gulp.task('fonts:build', function() {
+	return gulp.src(path.src.fonts, {since: gulp.lastRun('fonts:build')})
 		.pipe(plumber())
-		.pipe(gulpIf(isDevelopment, newer(path.build.font), newer(path.production.font)))
-		.pipe(debug({title: 'Font build:'}))
-		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.font), gulp.dest(path.production.font)))
+		.pipe(gulpIf(isDevelopment, newer(path.build.fonts), newer(path.production.fonts)))
+		.pipe(debug({title: 'Fonts build:'}))
+		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.fonts), gulp.dest(path.production.fonts)))
 		.pipe(bs.stream());
 });
 
 // Создаем задание для всей сборки
-gulp.task('build', gulp.parallel('html:build', 'js:build', 'style:build', 'img:build', 'font:build'));
+gulp.task('build', gulp.parallel('html:build', 'js:build', 'style:build', 'img:build', 'fonts:build'));
 
 // Создаем задание для очистки папки build
 gulp.task('build:clean', function () {
@@ -159,7 +159,7 @@ gulp.task('watch', function(){
 	gulp.watch([path.watch.style], gulp.series('style:build'));
 	gulp.watch([path.watch.js], gulp.series('js:build'));
 	gulp.watch([path.watch.img], gulp.series('img:build'));
-	gulp.watch([path.watch.font], gulp.series('font:build'));
+	gulp.watch([path.watch.fonts], gulp.series('fonts:build'));
 });
 
 // Создаем задание для запуска всей сборки, Dev сервера и gulp-watch
