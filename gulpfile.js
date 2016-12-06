@@ -60,19 +60,17 @@ var path = {
 var devconf = {
 		server: "build",
 		port: 9000,
-		logPrefix: "InvaderZ",
-		browser: ["google-chrome", "firefox"],
-		notify: false
+		logPrefix: "Farengeyt451"
+		// browser: ["google-chrome", "firefox"]
 };
 
 // Создаем перемнную настроек Dev сервера (production)
 var prodconf = {
 		server: "production",
 		port: 9000,
-		logPrefix: "InvaderZ",
-		browser: ["google-chrome", "firefox"],
-		tunnel: true,
-		notify: false
+		logPrefix: "Farengeyt451",
+		browser: ["google-chrome", "firefox"]
+		// tunnel: true
 };
 
 // Создаем задание собрать HTML
