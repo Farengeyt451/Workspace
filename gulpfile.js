@@ -37,8 +37,8 @@ var path = {
 		fonts: "production/fonts/"
 	},
 	src: {						// Указываем пути откуда брать исходники
-		html: "src/index.pug",
-		js: "src/js/main.js",
+		html: "src/**/*.pug",
+		js: "src/js/*.js",
 		style: "src/style/main.scss",
 		img: "src/img/**/*.*",
 		fonts: "src/fonts/**/*.*"
@@ -59,18 +59,19 @@ var path = {
 // Создаем перемнную настроек Dev сервера (build)
 var devconf = {
 		server: "build",
-		port: 9000,
-		logPrefix: "Farengeyt451"
-		// browser: ["google-chrome", "firefox"]
+		port: 3000,
+		logPrefix: "Farengeyt451",
+		// browser: ["google-chrome", "firefox"],
+		notify: true
 };
 
 // Создаем перемнную настроек Dev сервера (production)
 var prodconf = {
 		server: "production",
-		port: 9000,
+		port: 3000,
 		logPrefix: "Farengeyt451",
-		browser: ["google-chrome", "firefox"]
-		// tunnel: true
+		// tunnel: true,
+		notify: true
 };
 
 // Создаем задание собрать HTML
@@ -102,7 +103,7 @@ gulp.task("style:build", function () {
 		.pipe(plumber())
 		.pipe(gulpIf(isDevelopment, sourcemaps.init()))
 		.pipe(sass().on("error", sass.logError))
-		.pipe(autoprefixer())
+		.pipe(autoprefixer({browsers: ["last 5 versions"]}))
 		.pipe(gulpIf(!isDevelopment, cleancss()))
 		.pipe(gulpIf(isDevelopment, sourcemaps.write()))
 		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.css), gulp.dest(path.production.css)))
