@@ -37,7 +37,8 @@ var path = {
 		fonts: "production/fonts/"
 	},
 	src: {						// Указываем пути откуда брать исходники
-		html: "src/**/*.pug",
+		html: "src/index.pug",
+		// html: "src/**/*.pug",
 		js: "src/js/*.js",
 		style: "src/style/main.scss",
 		img: "src/img/**/*.*",
@@ -53,6 +54,11 @@ var path = {
 	clean: {				// Указываем пути очистки директорий build и production
 		build: "build/*",
 		production: "production/*"
+	},
+	copy: {
+		// js: "node_modules/jquery/dist/jquery.min.js",
+		json: "src/manifest/*.json"
+		// css: "node_modules/bootstrap/dist/css/bootstrap.min.css"
 	}
 };
 
@@ -74,13 +80,24 @@ var prodconf = {
 		notify: true
 };
 
+// Создаем задание скопировать js и css
+gulp.task("copy", function () {
+	return gulp.src(path.copy.json)
+		// .pipe(gulpIf(isDevelopment, gulp.dest(path.build.js), gulp.dest(path.production.js)))
+		// .pipe(gulp.src(path.copy.css))
+		// .pipe(gulpIf(isDevelopment, gulp.dest(path.build.css), gulp.dest(path.production.css)))
+		// .pipe(gulp.src(path.copy.json))
+		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.html), gulp.dest(path.production.html)))
+		.pipe(bs.stream());
+});
+
 // Создаем задание собрать HTML
 gulp.task("html:build", function () {
 	return gulp.src(path.src.html)
 		.pipe(plumber())
 		.pipe(pug({
 			pretty: true
-		}))		
+		}))
 		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.html), gulp.dest(path.production.html)))
 		.pipe(bs.stream());
 });
@@ -132,7 +149,7 @@ gulp.task("fonts:build", function() {
 });
 
 // Создаем задание для всей сборки
-gulp.task("build", gulp.parallel("html:build", "js:build", "style:build", "img:build", "fonts:build"));
+gulp.task("build", gulp.parallel("copy", "html:build", "js:build", "style:build", "img:build", "fonts:build"));
 
 // Создаем задание для очистки папки build
 gulp.task("build:clean", function () {

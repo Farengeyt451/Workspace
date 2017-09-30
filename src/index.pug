@@ -1,10 +1,12 @@
 doctype html
-html
+html(lang="en")
 	head
-		title Empty Project
-		link(rel="stylesheet" type="text/css" href="css/main.css")
+		include templates/head
 	body
-		script(src="js/main.js")
-		include templates/first part.pug
-		include templates/second part.pug
-		include templates/third part.pug
+		header
+			include templates/header
+		main
+			include templates/content
+		footer
+			include templates/footer
+		include templates/scripts

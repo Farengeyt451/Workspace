@@ -1,7 +1,7 @@
 {
 	"name": "EmptyProject",
-	"version": "1.0.0",
-	"description": "",
+	"version": "1.1.0",
+	"description": "Deployment new project",
 	"main": "index.js",
 	"author": "Alexander Kislov",
 	"license": "ISC",
@@ -22,6 +22,8 @@
 		"gulp-sourcemaps": "^2.6.0",
 		"gulp-uglify": "^3.0.0"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"normalize-scss": "^7.0.0"
+	},
 	"optionalDependencies": {}
 }

@@ -1,3 +1,12 @@
-@import "partials/first part.scss";
-@import "partials/second part.scss";
-@import "partials/third part.scss";
+// Import normalize.css
+@import "node_modules/normalize-scss/sass/normalize/_import-now.scss";
+
+// Import fonts
+@import "partials/_fonts.scss";
+
+// Import variables
+@import "partials/_variables.scss";
+
+// Import style parts
+@import "partials/_general.scss";
+@import "partials/_media-queries.scss";
