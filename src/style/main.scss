@@ -1,12 +1,15 @@
 // Import normalize.css
-@import "node_modules/normalize-scss/sass/normalize/_import-now.scss";
+@import "node_modules/normalize-scss/sass/normalize/import-now";
+
+//Import bootstrap-4 grid
+@import "node_modules/bootstrap-4-grid/scss/grid";
 
 // Import fonts
-@import "partials/_fonts.scss";
+@import "partials/fonts";
 
 // Import variables
-@import "partials/_variables.scss";
+@import "partials/variables";
 
 // Import style parts
-@import "partials/_general.scss";
-@import "partials/_media-queries.scss";
+@import "partials/general";
+@import "partials/media-queries";
