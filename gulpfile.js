@@ -1,21 +1,22 @@
 "use strict";
 
 // Подключаем gulp и плагины
-const gulp = require("gulp");
-const autoprefixer = require("gulp-autoprefixer");
-const bs = require("browser-sync").create();
-const cleancss = require("gulp-clean-css");
-const debug = require("gulp-debug");
-const del = require("del");
-const gulpIf = require("gulp-if");
-const imagemin = require("gulp-imagemin");
-const newer = require("gulp-newer");
-const plumber = require("gulp-plumber");
-const pug = require("gulp-pug");
-const rigger = require("gulp-rigger");
-const sass = require("gulp-sass");
-const sourcemaps = require("gulp-sourcemaps");
-const uglify = require("gulp-uglify");
+const gulp = require("gulp"),
+			autoprefixer = require("gulp-autoprefixer"),
+			bs = require("browser-sync").create(),
+			cleancss = require("gulp-clean-css"),
+			debug = require("gulp-debug"),
+			del = require("del"),
+			gulpIf = require("gulp-if"),
+			imagemin = require("gulp-imagemin"),
+			newer = require("gulp-newer"),
+			plumber = require("gulp-plumber"),
+			pug = require("gulp-pug"),
+			rigger = require("gulp-rigger"),
+			sass = require("gulp-sass"),
+			sourcemaps = require("gulp-sourcemaps"),
+			uglify = require("gulp-uglify"),
+			merge = require("merge-stream");
 
 // Создаем переменную окружения NODE_ENV
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == "development";
@@ -25,6 +26,7 @@ var path = {
 	build: {					// Указываем куда перемещать готовые после сборки файлы (build)
 		html: "build/",
 		js: "build/js/",
+		manifest: "build/",
 		css: "build/css/",
 		img: "build/img/",
 		fonts: "build/fonts/"
@@ -32,14 +34,14 @@ var path = {
 	production: {				// Указываем куда перемещать готовые после сборки файлы (production)
 		html: "production/",
 		js: "production/js/",
+		manifest: "production/",
 		css: "production/css/",
 		img: "production/img/",
 		fonts: "production/fonts/"
 	},
 	src: {						// Указываем пути откуда брать исходники
 		html: "src/index.pug",
-		// html: "src/**/*.pug",
-		js: "src/js/*.js",
+		js: "src/js/main.js",
 		style: "src/style/main.scss",
 		img: "src/img/**/*.*",
 		fonts: "src/fonts/**/*.*"
@@ -56,9 +58,15 @@ var path = {
 		production: "production/*"
 	},
 	copy: {
-		// js: "node_modules/jquery/dist/jquery.min.js",
-		json: "src/manifest/*.json"
-		// css: "node_modules/bootstrap/dist/css/bootstrap.min.css"
+		jquery: "node_modules/jquery/dist/jquery.js",
+		manifest: "src/manifest/manifest.json",
+		mmenu: "node_modules/jquery.mmenu/dist/jquery.mmenu.js",
+		mmenucss: "node_modules/jquery.mmenu/dist/jquery.mmenu.css"
+	},
+	copyto: {
+		jquery: "src/js/partials/",
+		mmenu: "src/js/partials/",
+		mmenucss: "src/style/partials/"
 	}
 };
 
@@ -80,15 +88,15 @@ var prodconf = {
 		notify: true
 };
 
-// Создаем задание скопировать js и css
-gulp.task("copy", function () {
-	return gulp.src(path.copy.json)
-		// .pipe(gulpIf(isDevelopment, gulp.dest(path.build.js), gulp.dest(path.production.js)))
-		// .pipe(gulp.src(path.copy.css))
-		// .pipe(gulpIf(isDevelopment, gulp.dest(path.build.css), gulp.dest(path.production.css)))
-		// .pipe(gulp.src(path.copy.json))
-		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.html), gulp.dest(path.production.html)))
-		.pipe(bs.stream());
+// Создаем задание скопировать данные
+gulp.task("copy", function() {
+	var js = gulp.src([path.copy.jquery, path.copy.mmenu])
+		.pipe(gulp.dest(path.copyto.jquery));
+	var manifest = gulp.src(path.copy.manifest)
+		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.manifest), gulp.dest(path.production.manifest)));
+	var css = gulp.src(path.copy.mmenucss)
+		.pipe(gulp.dest(path.copyto.mmenucss));
+	return merge(js, manifest, css);
 });
 
 // Создаем задание собрать HTML
