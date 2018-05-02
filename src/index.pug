@@ -1,12 +1,21 @@
 doctype html
 html(lang="en")
 	head
-		include templates/head
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name="author" content="Alexander Kislov")
+		meta(name="copyright" content="Alexander Kislov")
+		meta(name="description" content="Workspace - Ecommerce Website")
+		meta(name="keywords" content="")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		meta(name="robots" content="index, follow")
+		title Workspace &mdash; Ecommerce Website
+		link(rel="shortcut icon" href="" type="image/x-icon")
+		link(rel="stylesheet" href="css/main.css" type = "text/css")
+		link(rel="manifest" href="manifest.json")
 	body
 		header
-			include templates/header
 		main
-			include templates/content
 		footer
-			include templates/footer
-		include templates/scripts
+		script(src="js/main.js")
+

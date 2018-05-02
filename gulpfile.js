@@ -40,9 +40,9 @@ var path = {
 		fonts: "production/fonts/"
 	},
 	src: {						// Указываем пути откуда брать исходники
-		html: "src/index.pug",
-		js: "src/js/main.js",
-		style: "src/style/main.scss",
+		html: "src/**/*.pug",
+		js: ["src/js/main.js", "src/js/pages/*.js"],
+		style: ["src/style/main.scss", "src/style/pages/*.scss"],
 		img: "src/img/**/*.*",
 		fonts: "src/fonts/**/*.*"
 	},
@@ -64,9 +64,9 @@ var path = {
 		mmenucss: "node_modules/jquery.mmenu/dist/jquery.mmenu.css"
 	},
 	copyto: {
-		jquery: "src/js/partials/",
-		mmenu: "src/js/partials/",
-		mmenucss: "src/style/partials/"
+		jquery: "src/js/libs/",
+		mmenu: "src/js/libs/",
+		mmenucss: "src/style/libs/"
 	}
 };
 
@@ -157,7 +157,7 @@ gulp.task("fonts:build", function() {
 });
 
 // Создаем задание для всей сборки
-gulp.task("build", gulp.parallel("copy", "html:build", "js:build", "style:build", "img:build", "fonts:build"));
+gulp.task("build", gulp.series("copy", gulp.parallel("html:build", "js:build", "style:build", "img:build", "fonts:build")));
 
 // Создаем задание для очистки папки build
 gulp.task("build:clean", function () {

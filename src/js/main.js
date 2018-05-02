@@ -1,3 +1,3 @@
-//= partials/jquery.js
-//= partials/jquery.mmenu.js
+//= libs/jquery.js
+//= libs/jquery.mmenu.js
 //= partials/app.js
