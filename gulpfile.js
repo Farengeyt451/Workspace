@@ -46,8 +46,8 @@ var path = {
 	},
 	src: {						// Указываем пути откуда брать исходники
 		html: "src/**/*.pug",
-		js: ["src/js/main.js", "src/js/pages/*.js"],
-		style: ["src/style/main.scss", "src/style/pages/*.scss"],
+		js: ["src/js/*.js", "src/js/pages/*.js"],
+		style: ["src/style/*.scss", "src/style/pages/*.scss"],
 		img: "src/img/**/*.*",
 		fonts: "src/fonts/**/*.*",
 		libsJS: "src/js/libs/*.js",
