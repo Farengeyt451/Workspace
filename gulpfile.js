@@ -66,14 +66,14 @@ var path = {
 	},
 	copy: {
 		jquery: "node_modules/jquery/dist/jquery.js",
+		mmenu: "node_modules/jquery.mmenu/dist/jquery.mmenu.all.js",
+		hamburgers: "node_modules/hamburgers/dist/hamburgers.css",
+		mmenucss: "node_modules/jquery.mmenu/dist/jquery.mmenu.all.css",
 		manifest: "src/manifest/manifest.json",
-		mmenu: "node_modules/jquery.mmenu/dist/jquery.mmenu.js",
-		mmenucss: "node_modules/jquery.mmenu/dist/jquery.mmenu.css"
 	},
 	copydest: {
-		jquery: "src/js/libs/",
-		mmenu: "src/js/libs/",
-		mmenucss: "src/style/libs/"
+		srcLibsJS: "src/js/libs/",
+		srcLibsCSS: "src/style/libs/"
 	}
 };
 
@@ -98,12 +98,12 @@ var prodconf = {
 // Создаем задание скопировать данные
 gulp.task("copy", function() {
 	var js = gulp.src([path.copy.jquery, path.copy.mmenu], {since: gulp.lastRun("copy")})
-		.pipe(gulp.dest(path.copydest.jquery));
+		.pipe(gulp.dest(path.copydest.srcLibsJS));
+	var css = gulp.src([path.copy.mmenucss, path.copy.hamburgers], {since: gulp.lastRun("copy")})
+		.pipe(gulp.dest(path.copydest.srcLibsCSS));
 	var manifest = gulp.src(path.copy.manifest, {since: gulp.lastRun("copy")})
 		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.manifest), gulp.dest(path.production.manifest)));
-	var css = gulp.src(path.copy.mmenucss, {since: gulp.lastRun("copy")})
-		.pipe(gulp.dest(path.copydest.mmenucss));
-	return merge(js, manifest, css);
+	return merge(js, css, manifest);
 });
 
 // Создаем задание сконкатенировать js библиотеки

@@ -15,11 +15,25 @@ html(lang="en")
 		link(rel="stylesheet" href="css/home.css" type = "text/css")
 		link(rel="manifest" href="manifest.json")
 	body
-		header
-			.container
-				h1 Say Hello!
-		main
-		footer
+		#my-page
+			#my-header
+				a.hamburger.hamburger--emphatic(href="#my-menu")
+					span.hamburger-box
+						span.hamburger-inner
+				nav#my-menu
+					ul
+						li
+							a(href="#/") Home
+						li
+							a(href="#/") Inspirations
+						li
+							a(href="#/") Collections
+						li
+							a(href="#/") Tutorials
+						li
+							a(href="#/") Detail Product
+			#my-content
+			#my-footer
 		script(src="js/libs/libs.js")
 		script(src="js/home.js")
 

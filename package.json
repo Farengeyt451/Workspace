@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "bootstrap-4-grid": "^2.4.0",
+    "hamburgers": "^0.9.3",
     "jquery": "^3.3.1",
     "jquery.mmenu": "^7.0.2",
     "normalize-scss": "^7.0.1",
