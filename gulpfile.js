@@ -16,7 +16,8 @@ const gulp = require("gulp"),
 			sass = require("gulp-sass"),
 			sourcemaps = require("gulp-sourcemaps"),
 			uglify = require("gulp-uglify"),
-			merge = require("merge-stream");
+			merge = require("merge-stream"),
+			concat = require("gulp-concat");
 
 // Создаем переменную окружения NODE_ENV
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == "development";
@@ -29,7 +30,9 @@ var path = {
 		manifest: "build/",
 		css: "build/css/",
 		img: "build/img/",
-		fonts: "build/fonts/"
+		fonts: "build/fonts/",
+		libsJS: "build/js/libs/",
+		libsCSS: "build/css/libs/"
 	},
 	production: {				// Указываем куда перемещать готовые после сборки файлы (production)
 		html: "production/",
@@ -37,14 +40,18 @@ var path = {
 		manifest: "production/",
 		css: "production/css/",
 		img: "production/img/",
-		fonts: "production/fonts/"
+		fonts: "production/fonts/",
+		libsJS: "production/js/libs/",
+		libsCSS: "production/css/libs/"
 	},
 	src: {						// Указываем пути откуда брать исходники
 		html: "src/**/*.pug",
 		js: ["src/js/main.js", "src/js/pages/*.js"],
 		style: ["src/style/main.scss", "src/style/pages/*.scss"],
 		img: "src/img/**/*.*",
-		fonts: "src/fonts/**/*.*"
+		fonts: "src/fonts/**/*.*",
+		libsJS: "src/js/libs/*.js",
+		libsCSS: "src/style/libs/*.css"
 	},
 	watch: {					// Указываем за изменением каких файлов наблюдать
 		html: "src/**/*.pug",
@@ -63,7 +70,7 @@ var path = {
 		mmenu: "node_modules/jquery.mmenu/dist/jquery.mmenu.js",
 		mmenucss: "node_modules/jquery.mmenu/dist/jquery.mmenu.css"
 	},
-	copyto: {
+	copydest: {
 		jquery: "src/js/libs/",
 		mmenu: "src/js/libs/",
 		mmenucss: "src/style/libs/"
@@ -90,13 +97,29 @@ var prodconf = {
 
 // Создаем задание скопировать данные
 gulp.task("copy", function() {
-	var js = gulp.src([path.copy.jquery, path.copy.mmenu])
-		.pipe(gulp.dest(path.copyto.jquery));
-	var manifest = gulp.src(path.copy.manifest)
+	var js = gulp.src([path.copy.jquery, path.copy.mmenu], {since: gulp.lastRun("copy")})
+		.pipe(gulp.dest(path.copydest.jquery));
+	var manifest = gulp.src(path.copy.manifest, {since: gulp.lastRun("copy")})
 		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.manifest), gulp.dest(path.production.manifest)));
-	var css = gulp.src(path.copy.mmenucss)
-		.pipe(gulp.dest(path.copyto.mmenucss));
+	var css = gulp.src(path.copy.mmenucss, {since: gulp.lastRun("copy")})
+		.pipe(gulp.dest(path.copydest.mmenucss));
 	return merge(js, manifest, css);
+});
+
+// Создаем задание сконкатенировать js библиотеки
+gulp.task("libsJS:concat", function() {
+	return gulp.src(path.src.libsJS, {since: gulp.lastRun("libsJS:concat")})
+		.pipe(concat("libs.js"))
+		.pipe(uglify())
+		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.libsJS), gulp.dest(path.production.libsJS)))
+});
+
+// Создаем задание сконкатенировать css библиотеки
+gulp.task("libsCSS:concat", function() {
+	return gulp.src(path.src.libsCSS, {since: gulp.lastRun("libsCSS:concat")})
+		.pipe(concat("libs.css"))
+		.pipe(cleancss())
+		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.libsCSS), gulp.dest(path.production.libsCSS)))
 });
 
 // Создаем задание собрать HTML
@@ -157,7 +180,7 @@ gulp.task("fonts:build", function() {
 });
 
 // Создаем задание для всей сборки
-gulp.task("build", gulp.series("copy", gulp.parallel("html:build", "js:build", "style:build", "img:build", "fonts:build")));
+gulp.task("build", gulp.series("copy", gulp.parallel("html:build", "js:build", "style:build", "img:build", "fonts:build", "libsJS:concat", "libsCSS:concat")));
 
 // Создаем задание для очистки папки build
 gulp.task("build:clean", function () {
