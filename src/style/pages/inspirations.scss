@@ -1,0 +1,10 @@
+// Import normalize.css
+@import "node_modules/normalize-scss/sass/normalize/import-now";
+
+//Import bootstrap-4 grid
+@import "node_modules/bootstrap-4-grid/scss/grid";
+
+@import "../mixins/font-face";
+
+@include font-face("Roboto", "../fonts/RobotoRegular/RobotoRegular");
+@include font-face("Roboto", "../fonts/RobotoBold/RobotoBold", bold);

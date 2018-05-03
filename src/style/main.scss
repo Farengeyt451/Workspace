@@ -5,11 +5,7 @@
 @import "node_modules/bootstrap-4-grid/scss/grid";
 
 // Import fonts
-@import "partials/fonts";
+@import "mixins/font-face";
 
-// Import variables
-@import "partials/variables";
-
-// Import style parts
-@import "partials/general";
-@import "partials/media-queries";
+@include font-face("Roboto", "../fonts/RobotoRegular/RobotoRegular");
+@include font-face("Roboto", "../fonts/RobotoBold/RobotoBold", bold);
