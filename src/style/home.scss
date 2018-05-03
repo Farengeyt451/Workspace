@@ -9,3 +9,11 @@
 
 @include font-face("Roboto", "../fonts/RobotoRegular/RobotoRegular");
 @include font-face("Roboto", "../fonts/RobotoBold/RobotoBold", bold);
+
+// Home page styles
+body {
+	font-family: "Roboto", sans-serif;
+	h1 {
+		text-align: center;
+	}
+}
