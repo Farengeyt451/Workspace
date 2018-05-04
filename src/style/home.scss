@@ -5,14 +5,14 @@
 @import "node_modules/bootstrap-4-grid/scss/grid";
 
 // Import fonts
-@import "mixins/font-face";
+@import "partials/fonts";
 
-@include font-face("Roboto", "../fonts/RobotoRegular/RobotoRegular");
-@include font-face("Roboto", "../fonts/RobotoBold/RobotoBold", 700);
-@include font-face("Roboto", "../fonts/RobotoLight/RobotoLight", 200);
-@include font-face("PTSerif", "../fonts/PTSerifRegular/PTSerifRegular");
+// Import variables
+@import "partials/variables";
+
+// Import style parts
+@import "partials/general";
+@import "partials/media-queries";
 
 // Home page styles
-body {
-	font-family: "Roboto", sans-serif;
-}
+

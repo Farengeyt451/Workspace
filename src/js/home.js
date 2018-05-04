@@ -1,7 +1,8 @@
 $(document).ready(function() {
-	$("#my-menu").mmenu({
-		"extensions": [
-		]
+	$("#mmenu").mmenu({
+		offCanvas: {
+			pageSelector: "#my-wrapper"
+		}
 	});
 
 });

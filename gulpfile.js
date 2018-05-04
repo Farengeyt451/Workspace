@@ -45,7 +45,7 @@ var path = {
 		libsCSS: "production/css/libs/"
 	},
 	src: {						// Указываем пути откуда брать исходники
-		html: "src/**/*.pug",
+		html: "src/**/*.html",
 		js: ["src/js/*.js", "src/js/pages/*.js"],
 		style: ["src/style/*.scss", "src/style/pages/*.scss"],
 		img: "src/img/**/*.*",
@@ -124,11 +124,11 @@ gulp.task("libsCSS:concat", function() {
 
 // Создаем задание собрать HTML
 gulp.task("html:build", function () {
-	return gulp.src(path.src.html)
-		.pipe(plumber())
-		.pipe(pug({
-			pretty: true
-		}))
+	return gulp.src(path.src.html, {since: gulp.lastRun("html:build")})
+		// .pipe(plumber())
+		// .pipe(pug({
+		// 	pretty: true
+		// }))
 		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.html), gulp.dest(path.production.html)))
 		.pipe(bs.stream());
 });
