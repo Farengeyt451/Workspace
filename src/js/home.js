@@ -1,8 +1,8 @@
 $(document).ready(function() {
 	$("#mmenu").mmenu({
-		offCanvas: {
-			pageSelector: "#my-wrapper"
+		"extensions": {
+			"all": ["border-none","fx-menu-slide"],
+			"(max-width: 400px)": ["fullscreen", "listview-justify"]
 		}
 	});
-
 });
