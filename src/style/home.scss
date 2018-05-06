@@ -14,5 +14,60 @@
 @import "partials/general";
 @import "partials/media-queries";
 
+// Import mobile nav menu
+@import "partials/nav-menu";
+
 // Home page styles
+.container {
+	position: relative;
+	width: 100vw;
+	min-height: 100vh;
+	overflow: hidden;
+	border: 1px solid $accent;
+}
+
+header {
+	.top-menu {
+		padding-top: 20px;
+	}
+	.logo {
+		img {
+			width: 160px;
+			height: auto;
+		}
+	}
+	ul {
+		padding: 0px;
+		list-style: none;
+		text-align: center;
+	}
+	li {
+		position: relative;
+		font-size: 20px;
+		padding: 0px 15px;
+	}
+	a {
+		color: $secondary;
+		text-decoration: none;
+	}
+	.link {
+		position: relative;
+		&:after {
+			content: "";
+			position: absolute;
+			width: 0;
+			height: 3px;
+			display: block;
+			margin-top: 2px;
+			right: 0;
+			background: $accent;
+			transition: width 0.4s ease;
+		}
+		&:hover:after, &:focus:after {
+			width: 100%;
+			left: 0;
+			background: $accent;
+		}
+	}
+}
 

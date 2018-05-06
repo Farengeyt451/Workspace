@@ -54,7 +54,7 @@ var path = {
 		libsCSS: "src/style/libs/*.css"
 	},
 	watch: {					// Указываем за изменением каких файлов наблюдать
-		html: "src/**/*.pug",
+		html: "src/**/*.html",
 		js: "src/js/**/*.js",
 		style: "src/style/**/*.scss",
 		img: "src/img/**/*.*",
@@ -66,9 +66,9 @@ var path = {
 	},
 	copy: {
 		jquery: "node_modules/jquery/dist/jquery.js",
-		mmenu: "node_modules/jquery.mmenu/dist/jquery.mmenu.all.js",
-		hamburgers: "node_modules/hamburgers/dist/hamburgers.css",
-		mmenucss: "node_modules/jquery.mmenu/dist/jquery.mmenu.all.css",
+		// mmenu: "node_modules/jquery.mmenu/dist/jquery.mmenu.all.js",
+		// hamburgers: "node_modules/hamburgers/dist/hamburgers.css",
+		// mmenucss: "node_modules/jquery.mmenu/dist/jquery.mmenu.all.css",
 		manifest: "src/manifest/manifest.json",
 	},
 	copydest: {
@@ -97,13 +97,13 @@ var prodconf = {
 
 // Создаем задание скопировать данные
 gulp.task("copy", function() {
-	var js = gulp.src([path.copy.jquery, path.copy.mmenu], {since: gulp.lastRun("copy")})
+	var js = gulp.src([path.copy.jquery], {since: gulp.lastRun("copy")})
 		.pipe(gulp.dest(path.copydest.srcLibsJS));
-	var css = gulp.src([path.copy.mmenucss, path.copy.hamburgers], {since: gulp.lastRun("copy")})
-		.pipe(gulp.dest(path.copydest.srcLibsCSS));
+	// var css = gulp.src([path.copy.mmenucss], {since: gulp.lastRun("copy")})
+		// .pipe(gulp.dest(path.copydest.srcLibsCSS));
 	var manifest = gulp.src(path.copy.manifest, {since: gulp.lastRun("copy")})
 		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.manifest), gulp.dest(path.production.manifest)));
-	return merge(js, css, manifest);
+	return merge(js, manifest);
 });
 
 // Создаем задание сконкатенировать js библиотеки
@@ -124,7 +124,7 @@ gulp.task("libsCSS:concat", function() {
 
 // Создаем задание собрать HTML
 gulp.task("html:build", function () {
-	return gulp.src(path.src.html, {since: gulp.lastRun("html:build")})
+	return gulp.src(path.src.html)
 		// .pipe(plumber())
 		// .pipe(pug({
 		// 	pretty: true
