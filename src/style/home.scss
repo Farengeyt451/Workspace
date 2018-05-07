@@ -23,7 +23,6 @@
 	width: 100vw;
 	min-height: 100vh;
 	overflow: hidden;
-	border: 1px solid $accent;
 }
 
 header {
@@ -36,40 +35,36 @@ header {
 			height: auto;
 		}
 	}
-	.fa-search {
+	.sign-search {
+		display: flex;
+		justify-content: flex-end;
 		font-size: 24px;
-	}
-	ul {
-		padding: 0px;
-		list-style: none;
-		text-align: center;
-	}
-	li {
-		position: relative;
-		font-size: 20px;
-		padding: 0px 15px;
-	}
-	a {
-		color: $secondary;
-		text-decoration: none;
-	}
-	.link {
-		position: relative;
-		&:after {
-			content: "";
-			position: absolute;
-			width: 0;
-			height: 3px;
-			display: block;
-			margin-top: 2px;
-			right: 0;
-			background: $accent;
-			transition: width 0.4s ease;
+		a {
+			color: $secondary;
+			text-decoration: none;
+			span {
+				display: block;
+				&:after {
+					content:"";
+					float:left;
+					background-color: $accent;
+					width:0;
+					height:4px;
+					border-radius: 4px;
+					margin-top: -6px;
+					transition: 0.25s 0s ease-in-out;
+				}
+				&:hover:after, &:focus:after {
+					width: 100%;
+				}
+			}
 		}
-		&:hover:after, &:focus:after {
-			width: 100%;
-			left: 0;
-			background: $accent;
+		.fa-search {
+			margin-right: 35px;
+			transition: 0.2s 0s ease-in-out;
+			&:hover, &:focus {
+				color: $accent;
+			}
 		}
 	}
 }

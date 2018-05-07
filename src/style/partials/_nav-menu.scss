@@ -11,10 +11,11 @@ label {
 		transition: 0.5s ease-in-out;
 		box-shadow: 0 0 0 0 $white, 0 0 0 0 $white;
 		cursor: pointer;
+		// background-color: pink;
 	}
 	.hamburger {
 		position: absolute;
-		top: 135px;
+		top: 140px;
 		left: 50px;
 		width: 35px;
 		height: 4px;
@@ -61,11 +62,9 @@ label {
 			}
 		}
 	}
-
 	input:checked + .menu + ul {
 		opacity: 1;
 	}
-
 	ul {
 		z-index: 200;
 		position: absolute;
@@ -74,21 +73,42 @@ label {
 		transform: translate(-50%,-50%);
 		opacity: 0;
 		transition: 0.25s 0s ease-in-out;
+		padding: 0px;
+		list-style: none;
+		text-align: center;
 	}
-
+	li {
+		position: relative;
+		font-size: 24px;
+		padding: 0px 15px;
+	}
+	a {
+		color: $secondary;
+		text-decoration: none;
+	}
+	.link {
+		position: relative;
+		&:after {
+			content: "";
+			position: absolute;
+			display: block;
+			width: 0;
+			height: 4px;
+			margin-top: 2px;
+			right: 0;
+			background-color: $accent;
+			transition: width 0.4s ease;
+		}
+		&:hover:after, &:focus:after {
+			width: 100%;
+			// left: 0;
+			background-color: $accent;
+		}
+	}
 	a {
 		margin-bottom: 15px;
 		display: block;
 		color: $secondary;
 		text-decoration: none;
 	}
-}
-
-h1 {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	width: 80%;
-	text-align: center;
 }

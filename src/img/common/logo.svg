@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -44,13 +44,23 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="1.6586455"
-     inkscape:cx="304.75291"
-     inkscape:cy="138.38042"
+     inkscape:zoom="4.6913579"
+     inkscape:cx="391.07929"
+     inkscape:cy="65.301231"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg48" />
+     inkscape:current-layer="svg48"
+     inkscape:measure-start="488.984,59.8974"
+     inkscape:measure-end="433.35,48.6"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="270.55209,87.420731"
+       orientation="0,1"
+       id="guide4622"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
   <defs
      id="defs8">
     <path
@@ -125,7 +135,7 @@
      inkscape:connector-curvature="0" />
   <g
      id="g20"
-     transform="matrix(2.7716049,0,0,4.3822734,-448.99999,-177.44112)">
+     transform="matrix(2.7716075,0,0,2.4449878,-449.00041,-59.458277)">
     <use
        height="100%"
        width="100%"
@@ -137,7 +147,7 @@
   </g>
   <g
      id="g24"
-     transform="matrix(2.7716049,0,0,4.3822734,-448.99999,-177.44112)">
+     transform="matrix(2.7716049,0,0,2.4213075,-448.99999,-63.062884)">
     <use
        height="100%"
        width="100%"
@@ -149,7 +159,7 @@
   </g>
   <g
      id="g28"
-     transform="matrix(2.7716049,0,0,4.3822734,-448.99999,-177.44112)">
+     transform="matrix(2.7716078,0,0,2.3967847,-449.00079,-67.979804)">
     <use
        height="100%"
        width="100%"
@@ -161,7 +171,7 @@
   </g>
   <g
      id="g32"
-     transform="matrix(2.7716049,0,0,4.3822734,-448.99999,-177.44112)">
+     transform="matrix(2.7716075,0,0,2.4449878,-449.00041,-59.458277)">
     <use
        height="100%"
        width="100%"
@@ -173,7 +183,7 @@
   </g>
   <g
      id="g36"
-     transform="matrix(2.7716049,0,0,4.3822734,-448.99999,-177.44112)">
+     transform="matrix(2.7716049,0,0,2.4213075,-448.99999,-63.062884)">
     <use
        height="100%"
        width="100%"
@@ -185,7 +195,7 @@
   </g>
   <g
      id="g40"
-     transform="matrix(2.7716049,0,0,4.3822734,-448.99999,-177.44112)">
+     transform="matrix(2.7716049,0,0,2.3967847,-448.99999,-67.566942)">
     <use
        height="100%"
        width="100%"

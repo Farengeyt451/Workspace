@@ -2,19 +2,9 @@
 # yarn lockfile v1
 
 
-"@fortawesome/fontawesome-common-types@^0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.1.6.tgz#3cefd6cd88a2256e1daa69b6fc9a6ab5e3c33e4a"
-
 "@fortawesome/fontawesome-free-webfonts@^1.0.8":
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-webfonts/-/fontawesome-free-webfonts-1.0.8.tgz#07d9497904dc036d81f697356932dfeb50e5921f"
-
-"@fortawesome/fontawesome@^1.1.7":
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-1.1.7.tgz#15a6508cd6ab465b6a5bd1fb83f4c962a8c7df7a"
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.1.6"
 
 "@gulp-sourcemaps/identity-map@1.X":
   version "1.0.1"
