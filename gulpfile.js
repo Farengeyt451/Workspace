@@ -50,8 +50,8 @@ var path = {
 		style: ["src/style/*.scss", "src/style/pages/*.scss"],
 		img: "src/img/**/*.*",
 		fonts: "src/fonts/**/*.*",
-		libsJS: "src/js/libs/*.js",
-		libsCSS: "src/style/libs/*.css"
+		libsJS: ["node_modules/jquery/dist/jquery.min.js"],
+		libsCSS: [" "]
 	},
 	watch: {					// Указываем за изменением каких файлов наблюдать
 		html: "src/**/*.html",
@@ -65,15 +65,17 @@ var path = {
 		production: "production/*"
 	},
 	copy: {
-		jquery: "node_modules/jquery/dist/jquery.js",
+		// jquery: "node_modules/jquery/dist/jquery.js",
 		// mmenu: "node_modules/jquery.mmenu/dist/jquery.mmenu.all.js",
 		// hamburgers: "node_modules/hamburgers/dist/hamburgers.css",
 		// mmenucss: "node_modules/jquery.mmenu/dist/jquery.mmenu.all.css",
+		fontawesom: "node_modules/@fortawesome/fontawesome-free-webfonts/webfonts/*.*",
 		manifest: "src/manifest/manifest.json",
 	},
 	copydest: {
 		srcLibsJS: "src/js/libs/",
-		srcLibsCSS: "src/style/libs/"
+		srcLibsCSS: "src/style/libs/",
+		fontawesom: "build/fonts/webfonts/"
 	}
 };
 
@@ -97,13 +99,13 @@ var prodconf = {
 
 // Создаем задание скопировать данные
 gulp.task("copy", function() {
-	var js = gulp.src([path.copy.jquery], {since: gulp.lastRun("copy")})
-		.pipe(gulp.dest(path.copydest.srcLibsJS));
-	// var css = gulp.src([path.copy.mmenucss], {since: gulp.lastRun("copy")})
-		// .pipe(gulp.dest(path.copydest.srcLibsCSS));
+	// var js = gulp.src([path.copy.jquery], {since: gulp.lastRun("copy")})
+		// .pipe(gulp.dest(path.copydest.srcLibsJS));
+	var fontawesom = gulp.src([path.copy.fontawesom], {since: gulp.lastRun("copy")})
+		.pipe(gulp.dest(path.copydest.fontawesom));
 	var manifest = gulp.src(path.copy.manifest, {since: gulp.lastRun("copy")})
 		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.manifest), gulp.dest(path.production.manifest)));
-	return merge(js, manifest);
+	return merge(manifest);
 });
 
 // Создаем задание сконкатенировать js библиотеки
@@ -180,7 +182,7 @@ gulp.task("fonts:build", function() {
 });
 
 // Создаем задание для всей сборки
-gulp.task("build", gulp.series("copy", gulp.parallel("html:build", "js:build", "style:build", "img:build", "fonts:build", "libsJS:concat", "libsCSS:concat")));
+gulp.task("build", gulp.parallel("copy", "html:build", "js:build", "style:build", "img:build", "fonts:build", "libsJS:concat", "libsCSS:concat"));
 
 // Создаем задание для очистки папки build
 gulp.task("build:clean", function () {

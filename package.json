@@ -25,6 +25,7 @@
     "merge-stream": "^1.0.1"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free-webfonts": "^1.0.8",
     "bootstrap-4-grid": "^2.4.0",
     "hamburgers": "^0.9.3",
     "jquery": "^3.3.1",

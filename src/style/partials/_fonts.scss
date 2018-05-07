@@ -1,5 +1,16 @@
+// Change default path for fontawesom
+$fa-font-path: "../fonts/webfonts";
+
+// Import mixin for fonts
 @import "../mixins/font-face";
 
+// Import fontawesom
+@import "../../node_modules/@fortawesome/fontawesome-free-webfonts/scss/fontawesome";
+@import "../../node_modules/@fortawesome/fontawesome-free-webfonts/scss/fa-brands";
+@import "../../node_modules/@fortawesome/fontawesome-free-webfonts/scss/fa-regular";
+@import "../../node_modules/@fortawesome/fontawesome-free-webfonts/scss/fa-solid";
+
+// Plugin fonts
 @include font-face("Roboto", "../fonts/RobotoRegular/RobotoRegular");
 @include font-face("Roboto", "../fonts/RobotoBold/RobotoBold", 700);
 @include font-face("Roboto", "../fonts/RobotoLight/RobotoLight", 200);
