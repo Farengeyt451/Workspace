@@ -1,22 +1,21 @@
 label {
 	.menu {
 		position: absolute;
-		right: -100px;
-		top: -100px;
+		right: 0;
+		top: 10px;
 		z-index: 100;
-		width: 200px;
-		height: 200px;
+		width: 50px;
+		height: 50px;
 		background-color: transparent;
 		border-radius: 50% 50% 50% 50%;
 		transition: 0.5s ease-in-out;
 		box-shadow: 0 0 0 0 $white, 0 0 0 0 $white;
 		cursor: pointer;
-		// background-color: pink;
 	}
 	.hamburger {
 		position: absolute;
-		top: 140px;
-		left: 50px;
+		top: 50%;
+		left: 0;
 		width: 35px;
 		height: 4px;
 		border-radius: 5px;
@@ -98,15 +97,16 @@ label {
 			right: 0;
 			background-color: $accent;
 			transition: width 0.4s ease;
+			border-radius: 4px;
 		}
 		&:hover:after, &:focus:after {
 			width: 100%;
-			// left: 0;
+			left: 0;
 			background-color: $accent;
 		}
 	}
 	a {
-		margin-bottom: 15px;
+		margin-bottom: 30px;
 		display: block;
 		color: $secondary;
 		text-decoration: none;

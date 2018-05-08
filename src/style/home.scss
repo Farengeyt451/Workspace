@@ -42,7 +42,7 @@ header {
 		a {
 			color: $secondary;
 			text-decoration: none;
-			span {
+			span.sign-in {
 				display: block;
 				&:after {
 					content:"";
@@ -51,7 +51,7 @@ header {
 					width:0;
 					height:4px;
 					border-radius: 4px;
-					margin-top: -6px;
+					margin-top: 2px;
 					transition: 0.25s 0s ease-in-out;
 				}
 				&:hover:after, &:focus:after {
@@ -60,12 +60,45 @@ header {
 			}
 		}
 		.fa-search {
-			margin-right: 35px;
+			margin-right: 24px;
 			transition: 0.2s 0s ease-in-out;
+			font-size: 20px;
 			&:hover, &:focus {
 				color: $accent;
 			}
 		}
 	}
+	.popup {
+		position: relative;
+		// display: inline-block;
+		cursor: pointer;
+		user-select: none;
+		.popuptext {
+			visibility: hidden;
+			background-color: #555;
+			color: #fff;
+			text-align: center;
+			border-radius: 6px;
+			position: absolute;
+			padding: 10px 0;
+			z-index: 1;
+			left: 0;
+			width: 100%;
+		}
+		.show {
+			visibility: visible;
+			animation: fadeIn 1s;
+		}
+	}
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+
+		to {
+			opacity: 1;
+		}
+	}
 }
+
 

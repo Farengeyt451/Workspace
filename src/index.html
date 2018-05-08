@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="author" content="Alexander Kislov">
@@ -10,14 +9,10 @@
 		<meta name="keywords" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="robots" content="index, follow">
-
-		<meta name="theme-color" content="#4285F4">
 		<meta name="msapplication-navbutton-color" content="#4285F4">
 		<meta name="apple-mobile-web-app-status-bar-style" content="#4285F4">
-
 		<link rel="shortcut icon" href="" type="image/x-icon">
 		<link rel="manifest" href="manifest.json">
-
 		<title>Workspace &mdash; Ecommerce Website</title>
 		<style>
 			html {
@@ -57,22 +52,25 @@
 				</nav>
 				<div class="top-menu">
 					<div class="row">
-						<div class="col-6 logo">
+						<div class="col-12 col-sm-6 logo">
 							<a href="index.html">
 								<img src="img/common/logo.svg">
 							</a>
 						</div>
-						<div class="col-5">
+						<div class="col-12 col-sm-5 d-none d-sm-block">
 							<div class="sign-search">
 								<a href="#">
-									<i class="fas fa-search"></i>
+									<i class="fas fa-search popup" id="popupSearch"></i>
 								</a>
 								<a href="#">
-									<span>Sign in</span>
+									<span class="sign-in">Sign in</span>
 								</a>
 							</div>
 						</div>
 					</div>
+				</div>
+				<div class="popup">
+					<span class="popuptext">Show Me</span>
 				</div>
 			</header>
 		</div>

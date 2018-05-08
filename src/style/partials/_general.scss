@@ -8,9 +8,9 @@ body {
 	font-family: "Roboto", sans-serif;
 	background-color: $white;
 	font-size: 16px;
-	line-height: 1.75;
 	overflow-x: hidden;
 	opacity: 1;
+	min-width: 320px;
 }
 
 input, select, textarea, button {
