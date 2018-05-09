@@ -1,18 +1,23 @@
-html, body {
+html,
+body {
 	margin: 0;
 	padding: 0;
 }
 
 body {
 	position: relative;
+	min-width: 320px;
+	min-height: 320px;
 	font-family: "Roboto", sans-serif;
-	background-color: $white;
 	font-size: 16px;
+	background-color: $white;
 	overflow-x: hidden;
 	opacity: 1;
-	min-width: 320px;
 }
 
-input, select, textarea, button {
-	font-family:inherit;
+input,
+select,
+textarea,
+button {
+	font-family: inherit;
 }
