@@ -1,8 +1,13 @@
 "use strict";
 
-const popupBar = $("#popupSearch");
+
+const hamburger = $(".burger-menu"),
+			popupBar = $("#popupSearch");
 
 popupBar.on("click", function(){
-	console.log("s");
 	$(".popuptext").toggleClass("show");
+});
+
+hamburger.on("click", function(){
+	hamburger.toggleClass("hamburger-active");
 });

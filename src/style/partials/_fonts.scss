@@ -13,5 +13,5 @@ $fa-font-path: "../fonts/webfonts";
 // Plugin fonts
 @include font-face("Roboto", "../fonts/RobotoRegular/RobotoRegular");
 @include font-face("Roboto", "../fonts/RobotoBold/RobotoBold", 700);
-@include font-face("Roboto", "../fonts/RobotoLight/RobotoLight", 200);
+@include font-face("Roboto", "../fonts/RobotoLight/RobotoLight", 300);
 @include font-face("PTSerif", "../fonts/PTSerifRegular/PTSerifRegular");

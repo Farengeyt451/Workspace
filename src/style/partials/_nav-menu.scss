@@ -1,130 +1,138 @@
-label {
-	.menu {
+// label {
+// 	.menu {
+// 		position: absolute;
+// 		right: 0;
+// 		top: 30px;
+// 		width: 50px;
+// 		height: 50px;
+// 		z-index: 2;
+// 		background-color: transparent;
+// 		box-shadow: 0 0 0 0 $white, 0 0 0 0 $white;
+// 		cursor: pointer;
+// 		transition: 0.5s ease-in-out;
+// 	}
+
+
+
+// 	input {
+// 		display: none;
+// 	}
+
+// 	input:checked + .menu {
+// 		box-shadow: 0 0 0 100vw $white, 0 0 0 100vh $white;
+// 		background-color: transparent;
+
+// 		ul {
+// 			// display: block;
+// 			opacity: 1;
+// 		}
+
+
+// 	}
+
+
+// 	ul {
+// 		// display: none;
+// 		position: absolute;
+// 		top: 50%;
+// 		left: 50%;
+// 		padding: 0;
+// 		z-index: 3;
+// 		opacity: 0;
+// 		list-style: none;
+// 		text-align: center;
+// 		transform: translate(-50%, -50%);
+// 		transition: 0.25s 0s ease-in-out;
+// 	}
+
+// 	li {
+// 		position: relative;
+// 		font-size: 24px;
+// 		padding: 0 15px;
+// 	}
+
+// 	a {
+// 		display: block;
+// 		margin-bottom: 30px;
+// 		color: $secondary;
+// 		text-decoration: none;
+// 	}
+
+// 	.link {
+// 		position: relative;
+
+// 		&::after {
+// 			content: "";
+// 			display: block;
+// 			position: absolute;
+// 			width: 0;
+// 			height: 4px;
+// 			margin-top: 2px;
+// 			right: 0;
+// 			background-color: $accent;
+// 			border-radius: 4px;
+// 			transition: width 0.4s ease;
+// 		}
+
+// 		&:hover::after,
+// 		&:focus::after {
+// 			width: 100%;
+// 			left: 0;
+// 			background-color: $accent;
+// 		}
+// 	}
+// }
+
+
+.hamburger {
+	display: block;
+	position: absolute;
+	top: calc(50%);
+	left: 0;
+	width: 35px;
+	height: 4px;
+	border-radius: 20px;
+	background-color: $secondary;
+	transition: 0.5s ease-in-out;
+	transform-origin: center;
+
+
+	&::after,
+	&::before {
+		content: "";
+		display: block;
 		position: absolute;
 		right: 0;
-		top: 27px;
-		width: 50px;
-		height: 50px;
-		z-index: 2;
-		background-color: transparent;
-		box-shadow: 0 0 0 0 $white, 0 0 0 0 $white;
-		cursor: pointer;
-		transition: 0.5s ease-in-out;
-	}
-
-	.hamburger {
-		display: block;
-		position: absolute;
-		top: 50%;
-		left: 0;
-		width: 35px;
-		height: 4px;
-		border-radius: 5px;
+		width: 25px;
+		height: 100%;
 		background-color: $secondary;
+		border-radius: 5px;
 		transition: 0.5s ease-in-out;
-		transform-origin: center;
+	}
 
-		&::after,
-		&::before {
-			content: "";
-			display: block;
-			position: absolute;
-			right: 0;
-			width: 25px;
-			height: 100%;
-			background-color: $secondary;
-			border-radius: 5px;
-			transition: 0.5s ease-in-out;
-		}
+	&::before {
+		top: -11px;
+	}
 
-		&::before {
-			top: -12px;
-		}
+	&::after {
+		bottom: -11px;
+	}
+}
+
+.hamburger-active {
+	.hamburger {
+		transform: rotate(45deg);
 
 		&::after {
-			bottom: -12px;
-		}
-	}
-
-	input {
-		display: none;
-	}
-
-	input:checked + .menu {
-		box-shadow: 0 0 0 100vw $white, 0 0 0 100vh $white;
-		background-color: transparent;
-
-		ul {
-			// display: block;
-			opacity: 1;
+			transform: rotate(90deg);
+			bottom: 0;
+			width: 35px;
 		}
 
-		.hamburger {
-			transform: rotate(45deg);
-
-			&::after {
-				transform: rotate(90deg);
-				bottom: 0;
-				width: 35px;
-			}
-
-			&::before {
-				top: 0;
-				width: 35px;
-				transform: rotate(90deg);
-			}
-		}
-	}
-
-
-	ul {
-		// display: none;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		padding: 0;
-		z-index: 3;
-		opacity: 0;
-		list-style: none;
-		text-align: center;
-		transform: translate(-50%, -50%);
-		transition: 0.25s 0s ease-in-out;
-	}
-
-	li {
-		position: relative;
-		font-size: 24px;
-		padding: 0 15px;
-	}
-
-	a {
-		display: block;
-		margin-bottom: 30px;
-		color: $secondary;
-		text-decoration: none;
-	}
-
-	.link {
-		position: relative;
-
-		&::after {
-			content: "";
-			display: block;
-			position: absolute;
-			width: 0;
-			height: 4px;
-			margin-top: 2px;
-			right: 0;
-			background-color: $accent;
-			border-radius: 4px;
-			transition: width 0.4s ease;
-		}
-
-		&:hover::after,
-		&:focus::after {
-			width: 100%;
-			left: 0;
-			background-color: $accent;
+		&::before {
+			top: 0;
+			width: 35px;
+			transform: rotate(90deg);
 		}
 	}
 }
