@@ -27,7 +27,6 @@
 // ------
 // Header
 // ------
-
 .header-wrapper {
 	min-height: 100vh;
 	display: flex;
@@ -225,7 +224,7 @@
 
 	i {
 		position: absolute;
-		right: 10px;
+		right: 25px;
 		top: 50%;
 		transform: translateY(-12px);
 		font-size: 24px;
@@ -235,12 +234,15 @@
 
 	input[type=search] {
 		width: 560px;
-		padding: 12px 25px;
+		padding: 12px 50px 12px 25px;
 		border: 1px solid rgba($accent, 0.5);
 		border-radius: 25px;
 		outline: none;
 		font-size: 24px;
 		color: $secondary;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 		font-weight: 300;
 		transition: 0.2s ease;
 
@@ -267,5 +269,117 @@
 	input[type=search]::--ms-input-placeholder {
 		color: rgba($secondary, 0.3);
 		font-weight: 300;
+	}
+}
+
+// -------
+// Content
+// -------
+.content-wrapper {
+
+}
+
+.gallery {
+	min-height: 900px;
+	background-color: #777;
+
+	img {
+		width: 100%;
+		height: 100%;
+		transition: 0.2s ease-in-out;
+	}
+
+
+	.col-sm-4 {
+		height: 100%;
+	}
+
+	.img-hover {
+
+		&:hover {
+			background-color: red;
+
+			img {
+				cursor: pointer;
+				transform: scale(1.05);
+			}
+		}
+	}
+
+	.gal-top-l {
+		height: 20%;
+		margin-bottom: 30px;
+	}
+	.gal-bot-l {
+		height: 80%;
+	}
+
+	.gal-top-c {
+		height: 80%;
+		margin-bottom: 30px;
+	}
+
+	.gal-bot-c {
+		height: 20%;
+	}
+
+	.gal-r {
+		height: 33.3333%;
+		margin-bottom: 15px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.editor-choices {
+	span {
+		font-size: 24px;
+		position: relative;
+		margin-left: 15px;
+
+		&::after {
+			content: " ";
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 4px;
+			background-color: $accent;
+			left: 0;
+			bottom: -4px;
+			border-radius: 4px;
+		}
+	}
+}
+
+.flag {
+	display: inline-block;
+	width: 24px;
+	height: 50px;
+	padding-top: 15px;
+	position: relative;
+
+	background-color: $accent;
+	color: $white;
+	font-size: 11px;
+	text-align: center;
+	text-transform: uppercase;
+
+	i {
+		margin-left: 2px;
+		font-size: 14px;
+	}
+
+	&::after {
+	content: " ";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border-bottom: 12px solid white;
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
 	}
 }
