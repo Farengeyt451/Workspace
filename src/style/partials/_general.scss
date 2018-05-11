@@ -21,3 +21,7 @@ textarea,
 button {
 	font-family: inherit;
 }
+
+input::-ms-clear {
+	display: none;
+}

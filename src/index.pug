@@ -1,27 +1,7 @@
 doctype html
 html(lang="en")
 	head
-		meta(charset="utf-8")
-		meta(http-equiv="X-UA-Compatible", content="IE=edge")
-		meta(name="author", content="Alexander Kislov")
-		meta(name="copyright", content="Alexander Kislov")
-		meta(name="description", content="Workspace - Ecommerce Website")
-		meta(name="keywords", content="")
-		meta(name="viewport", content="width=device-width, initial-scale=1")
-		meta(name="robots", content="index, follow")
-		meta(name="msapplication-navbutton-color", content="#4285F4")
-		meta(name="apple-mobile-web-app-status-bar-style", content="#4285F4")
-		link(rel="shortcut icon", href="", type="image/x-icon")
-		link(rel="manifest", href="manifest.json")
-		title Workspace — Ecommerce Website
-		//- style.
-		//-   html {
-		//-   background-color: #FFF;
-		//-   }
-		//-   body {
-		//-   opacity: 0;
-		//-   overflow-x: hidden;
-		//-   }
+		include pages/home/head
 	body
 		.container-wrapper
 			.popup-search
@@ -30,31 +10,11 @@ html(lang="en")
 						input(type="search" name="top-menu-search" placeholder="Search...")
 			.container
 				header
-					.top-menu
-						.row
-							.col-6
-								.top-menu-left
-									.logo
-										a(href="index.html")
-											img(src="img/common/logo.svg", alt="Workspace - Ecommerce Website Logo")
-							.col-6
-								.top-menu-right
-									.search-menu
-										a(href="#/")
-											i#popupSearch.fas.fa-search
-									.sign-in-menu
-										a(href="#/")
-											span.sign-in Sign in
-									.burger-menu
-										span.hamburger
+					include pages/home/header
 				main
-					.search-area
-						.intro-text
-							h1 Need&nbsp;
-								span inspiration
-								|&nbsp;for your workspace?
-						.input-field
-							input(type="search" name="area-search" placeholder="Type product that you are looking for")
+					include pages/home/content
+		include pages/home/scripts
+
 		//- .container
 		//-   header
 		//-     nav
@@ -83,6 +43,5 @@ html(lang="en")
 				//-         span.sign-in Sign in
 				//- .popup
 				//-   span.popuptext Show Me
-		link(rel="stylesheet", href="css/home.css", type="text/css")
-		script(src="js/libs/libs.js")
-		script(src="js/home.js")
+
+

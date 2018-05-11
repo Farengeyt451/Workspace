@@ -45,7 +45,7 @@ var path = {
 		libsCSS: "production/css/libs/"
 	},
 	src: {						// Указываем пути откуда брать исходники
-		html: "src/**/*.pug",
+		html: "src/**/index.pug",
 		js: ["src/js/*.js", "src/js/pages/*.js"],
 		style: ["src/style/*.scss", "src/style/pages/*.scss"],
 		img: "src/img/**/*.*",

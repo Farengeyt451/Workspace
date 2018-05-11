@@ -25,6 +25,12 @@
 }
 
 // Header
+.header-wrapper {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
 .top-menu {
 	height: 110px;
 
@@ -151,6 +157,7 @@
 
 	input[type=search]::-moz-placeholder {
 		color: rgba($white, 0.8);
+		opacity: 1;
 	}
 
 	input[type=search]::--ms-input-placeholder {
@@ -167,15 +174,23 @@
 	}
 }
 
-
-
-// Main
 .search-area {
-	margin: 200px 0;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.search-area {
+		min-height: calc(100vh - 110px);
+	}
 }
 
 .intro-text {
 	text-align: center;
+	margin-bottom: 50px;
 	h1 {
 		font-weight: 300;
 		font-size: 62px;
@@ -200,9 +215,18 @@
 }
 
 .input-field {
-	display: flex;
-	justify-content: center;
+	display: inline-block;
+	position: relative;
 
+	i {
+		position: absolute;
+		right: 10px;
+		top: 50%;
+		transform: translateY(-12px);
+		font-size: 24px;
+		color: rgba($accent, 0.5);
+		transition: 0.2s ease;
+	}
 
 	input[type=search] {
 		width: 560px;
@@ -213,6 +237,15 @@
 		font-size: 24px;
 		color: $secondary;
 		font-weight: 300;
+		transition: 0.2s ease;
+
+		&:focus {
+			border: 1px solid rgba($accent, 0.8);
+		}
+
+		&:focus + i {
+			color: rgba($accent, 0.8);
+		}
 	}
 
 	input[type=search]::-webkit-input-placeholder {
@@ -223,6 +256,7 @@
 	input[type=search]::-moz-placeholder {
 		color: rgba($secondary, 0.3);
 		font-weight: 300;
+		opacity: 1;
 	}
 
 	input[type=search]::--ms-input-placeholder {
