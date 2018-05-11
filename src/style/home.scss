@@ -24,13 +24,19 @@
 	padding: 0 15px;
 }
 
+// ------
 // Header
+// ------
+
 .header-wrapper {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
 
+// ---------------------
+// Top menu/Logo/Sign-in
+// ---------------------
 .top-menu {
 	height: 110px;
 
@@ -79,7 +85,6 @@
 			color: $accent;
 		}
 	}
-
 }
 
 .sign-in-menu {
@@ -112,18 +117,14 @@
 	}
 }
 
-.burger-menu {
-	position: relative;
-	width: 35px;
-	height: 30px;
-	cursor: pointer;
-}
-
+// --------------------------
+// Top menu/Popup search menu
+// --------------------------
 .popup-search {
 	position: relative;
 	user-select: none;
 
-	.popuptext {
+	.popup-text {
 		position: absolute;
 		left: 0;
 		width: 100%;
@@ -174,6 +175,9 @@
 	}
 }
 
+// -----------------------------
+// Middle search area/Intro text
+// -----------------------------
 .search-area {
 	display: flex;
 	flex: 1;
@@ -182,6 +186,7 @@
 	align-items: center;
 }
 
+// IE fallback for flexbox (flex: 1)
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 	.search-area {
 		min-height: calc(100vh - 110px);
@@ -205,8 +210,8 @@
 			position: absolute;
 			width: 100%;
 			height: 6px;
-			margin-top: 4px;
 			right: 0;
+			bottom: -4px;
 			background-color: $accent;
 			border-radius: 4px;
 			transition: width 0.4s ease;

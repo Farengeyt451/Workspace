@@ -83,6 +83,12 @@
 // 	}
 // }
 
+.burger-menu {
+	position: relative;
+	width: 35px;
+	height: 30px;
+	cursor: pointer;
+}
 
 .hamburger {
 	display: block;
@@ -95,7 +101,6 @@
 	background-color: $secondary;
 	transition: 0.5s ease-in-out;
 	transform-origin: center;
-
 
 	&::after,
 	&::before {
