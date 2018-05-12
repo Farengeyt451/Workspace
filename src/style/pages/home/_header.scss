@@ -1,0 +1,151 @@
+// ------
+// Header
+// ------
+.header-wrapper {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+// ---------------------
+// Top menu/Logo/Sign-in
+// ---------------------
+.top-menu {
+	height: 110px;
+
+	a {
+		text-decoration: none;
+		color: $secondary;
+	}
+
+	.row {
+		height: 100%;
+	}
+}
+
+.top-menu-left {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	height: 100%;
+
+	.logo {
+		width: 160px;
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+.top-menu-right {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	height: 100%;
+}
+
+.search-menu {
+	margin-right: 30px;
+
+	.fa-search {
+		font-size: 27px;
+		transition: 0.2s 0s ease-in-out;
+
+		&:hover,
+		&:focus {
+			color: $accent;
+		}
+	}
+}
+
+.sign-in-menu {
+	margin-right: 30px;
+	font-size: 24px;
+
+	span {
+		display: block;
+		border-bottom: 6px solid transparent;
+		position: relative;
+
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			width: 0;
+			height: 4px;
+			margin-top: 2px;
+			right: 0;
+			background-color: $accent;
+			border-radius: 4px;
+			transition: width 0.4s ease;
+		}
+
+		&:hover::after,
+		&:focus::after {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+// --------------------------
+// Top menu/Popup search menu
+// --------------------------
+.popup-search {
+	position: relative;
+	user-select: none;
+	z-index: 20;
+
+	.popup-text {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		margin-top: 110px;
+		padding: 25px 0;
+		visibility: hidden;
+		color: $white;
+		background-color: $accent;
+		text-align: center;
+		border-radius: 4px;
+		z-index: 1;
+	}
+
+	.show {
+		visibility: visible;
+		animation: fadeIn 1s;
+	}
+
+	input[type=search] {
+		width: 100%;
+		border: 0;
+		outline: none;
+		font-size: 24px;
+		color: $white;
+		background-color: transparent
+	}
+
+	input[type=search]::-webkit-input-placeholder {
+		color: rgba($white, 0.8);
+	}
+
+	input[type=search]::-moz-placeholder {
+		color: rgba($white, 0.8);
+		opacity: 1;
+	}
+
+	input[type=search]::--ms-input-placeholder {
+		color: rgba($white, 0.8);
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
