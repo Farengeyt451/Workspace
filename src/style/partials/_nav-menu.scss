@@ -8,7 +8,7 @@
 .hamburger {
 	display: block;
 	position: absolute;
-	top: calc(50%);
+	top: calc(50% - 2.5px);
 	left: 0;
 	width: 35px;
 	height: 4px;
@@ -61,6 +61,7 @@
 
 	.nav-drill {
 		visibility: visible;
+		// display: flex;
 		transform: translateX(0);
 	}
 }
@@ -75,6 +76,7 @@
 	margin-top: 110px;
 	transform: translateX(100%);
 	visibility: hidden;
+	// display: none;
 	z-index: 10;
 	min-height: calc(100vh - 110px);
 	background-color: $white;
@@ -133,7 +135,7 @@
 	}
 }
 
-// IE fallback for flexbox (flex: 1)
+// IE fallback for flexbox
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 	.nav-drill {
 
