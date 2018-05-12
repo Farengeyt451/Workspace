@@ -94,7 +94,6 @@
 		list-style: none;
 		text-align: center;
 		transition: 0.25s 0s ease-in-out;
-
 		margin: 0 auto;
 		padding: 20px 0;
 	}
@@ -142,6 +141,17 @@
 		ul {
 			width: 100%;
 			height: calc(100vh - 110px);
+		}
+	}
+}
+
+@media screen and (max-device-width: 768px) {
+	.nav-drill {
+		ul {
+			li {
+				font-size: 24px;
+				letter-spacing: 2px;
+			}
 		}
 	}
 }

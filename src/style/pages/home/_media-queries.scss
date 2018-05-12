@@ -1,0 +1,60 @@
+@media screen and (max-device-width: 768px) {
+	.sign-in-menu {
+
+		span {
+			font-size: 18px;
+		}
+	}
+
+	.search-menu {
+		display: none;
+	}
+
+	.intro-text {
+		h1 {
+			font-size: 46px;
+			line-height: 60px;
+		}
+	}
+
+	.input-field {
+
+		input[type=search] {
+			font-size: 18px;
+		}
+	}
+}
+
+@media screen and (max-device-width: 540px) {
+	.intro-text {
+		h1 {
+			font-size: 32px;
+			line-height: 50px;
+		}
+	}
+
+	.input-field {
+		input[type=search] {
+			font-size: 18px;
+		}
+	}
+}
+
+@media screen and (max-device-width: 425px) {
+	.sign-in-menu {
+		display: none;
+	}
+
+	.intro-text {
+		h1 {
+			font-size: 28px;
+		}
+	}
+
+	.input-field {
+		input[type=search] {
+			// font-size: 12px;
+		}
+	}
+}
+
