@@ -58,7 +58,6 @@
 }
 
 .nav-is-toggled {
-
 	.nav-drill {
 		visibility: visible;
 		// display: flex;
@@ -137,21 +136,9 @@
 // IE fallback for flexbox
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 	.nav-drill {
-
 		ul {
 			width: 100%;
 			height: calc(100vh - 110px);
-		}
-	}
-}
-
-@media screen and (max-device-width: 768px) {
-	.nav-drill {
-		ul {
-			li {
-				font-size: 24px;
-				letter-spacing: 2px;
-			}
 		}
 	}
 }

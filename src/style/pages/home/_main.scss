@@ -35,7 +35,6 @@
 	height: 50px;
 	padding-top: 15px;
 	position: relative;
-
 	background-color: $accent;
 	color: $white;
 	font-size: 11px;
@@ -61,7 +60,6 @@
 }
 
 .gallery {
-
 	img {
 		display: block;
 		width: 100%;
@@ -81,7 +79,8 @@
 		overflow: hidden;
 		border-radius: 4px;
 
-		&:hover, &:focus {
+		&:hover,
+		&:focus {
 
 			img {
 				transform: scale(1.05);
@@ -103,8 +102,6 @@
 		margin: 15px 0;
 	}
 
-
-
 	.caption {
 		position: absolute;
 		top: 0;
@@ -112,7 +109,7 @@
 		width: 100%;
 		height: 100%;
 		opacity: 0;
-		background-color: rgba(0, 0, 0, 0.5);
+		background-color: rgba($secondary, 0.5);
 		color: $white;
 		transition: all 0.45s ease-in-out;
 	}
