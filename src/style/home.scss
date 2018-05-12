@@ -31,6 +31,7 @@
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	position: relative;
 }
 
 // ---------------------
@@ -122,6 +123,7 @@
 .popup-search {
 	position: relative;
 	user-select: none;
+	z-index: 20;
 
 	.popup-text {
 		position: absolute;
@@ -267,8 +269,8 @@
 	}
 
 	input[type=search]::--ms-input-placeholder {
-		color: rgba($secondary, 0.3);
-		font-weight: 300;
+		color: rgba($secondary, 0.3) !important;
+		font-weight: 300 !important;
 	}
 }
 
