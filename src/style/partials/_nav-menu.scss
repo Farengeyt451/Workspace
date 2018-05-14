@@ -60,7 +60,6 @@
 .nav-is-toggled {
 	.nav-drill {
 		visibility: visible;
-		// display: flex;
 		transform: translateX(0);
 	}
 }
@@ -75,13 +74,11 @@
 	margin-top: 110px;
 	transform: translateX(100%);
 	visibility: hidden;
-	// display: none;
 	z-index: 10;
 	min-height: calc(100vh - 110px);
 	background-color: $white;
 	overflow-y: auto;
 	overflow-x: hidden;
-	-webkit-overflow-scrolling: touch;
 	transition: 0.45s;
 	border-radius: 4px;
 

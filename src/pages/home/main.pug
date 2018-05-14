@@ -11,7 +11,9 @@ main
 				.col-md-4.gallery-item
 						.top
 							a(href="#/")
-								img(src="img/home/gallery/gallery-sm-1.jpg", alt="Gallery img table")
+								picture
+									source(media="(max-width: 768px)" srcset="img/home/gallery/gallery-1.jpg")
+									img(src="img/home/gallery/gallery-sm-1.jpg", alt="Gallery img table")
 								.caption
 									.caption-text
 										h1 Amazing Caption
@@ -60,7 +62,33 @@ main
 									.caption-text
 										h1 Amazing Caption
 										p Whatever It Is - Always Awesome
-		.row
-			.col-12
-				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate officiis natus cupiditate, placeat odit laudantium, culpa beatae iste maxime quibusdam harum excepturi optio sunt quos! Rerum rem error impedit aperiam quos fugit nam, magni, odio laudantium in cumque earum delectus distinctio reiciendis veritatis non, cupiditate eum libero dolorum! Nostrum voluptatum repellendus dolorem iure aspernatur vel architecto pariatur a eveniet et, amet odit qui sunt, ab, quod necessitatibus illo odio voluptatem. Ea, cupiditate ullam deleniti aperiam rem tempora, magni dolorum dolor autem saepe! Odit maiores suscipit amet porro aliquam illo cupiditate optio, sit a quidem tempore harum ipsum voluptates nulla deleniti quod quaerat magni nesciunt libero illum sed laudantium corporis delectus! Assumenda consequuntur aliquid doloribus earum enim officiis, odio necessitatibus, hic accusamus explicabo, inventore nobis, tempore! Molestiae, architecto, aliquam. Expedita animi corporis ipsa tempora hic quia atque accusamus quod aliquid minus non cum doloribus sint culpa ea tenetur esse eaque harum, obcaecati facere ratione similique deleniti dolorum, possimus. Quo similique ullam sunt libero provident asperiores fuga, amet nostrum corrupti tempora atque vitae doloribus quis autem quibusdam exercitationem qui debitis fugit, aperiam tenetur quidem praesentium modi! Quas atque quis, similique consectetur velit, ex alias ea, id laboriosam sed quisquam soluta officiis? Omnis.
-//- img(src="img/home/gallery/small/gallery-sm-7.jpg", alt="")
+		.gallery-explore
+			.row.justify-content-end
+				.col-md-auto
+					a.block-link(href="#/") Explore
+		.inspiration-products
+			.heading
+				h1 Inspiration Products
+				p Get your inspiration stuff here with best value
+		.desk-and-tables
+			.row.align-items-center.justify-content-between
+				.col-12.col-md-8
+					.left-table
+						img(src="img/home/product/image.png", alt="Table")
+						.caption
+							p Desks & Tables
+							a.block-link(href="#/") Collection
+				.col-12.col-md-4
+					.right-shop
+						img(src="img/home/product/get-all.jpg", alt="Get all collections")
+						.right-shop-link
+							.text-group
+								p Get all collections
+								a(href="#/") Shop now
+
+			.row
+
+			.row
+
+			.row
+
