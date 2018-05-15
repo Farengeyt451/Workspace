@@ -1,3 +1,14 @@
+@media screen and (max-width: 991px) {
+	.get-all {
+		height: auto;
+		text-align: center;
+		font-size: 24px;
+		background-position: inherit;
+		margin-top: 40px;
+		padding: 20px 0;
+	}
+}
+
 @media screen and (max-width: 768px) {
 	.nav-drill {
 		ul {
@@ -28,6 +39,49 @@
 	.input-field {
 		input[type=search] {
 			font-size: 18px;
+		}
+	}
+	.editor-choices {
+		span {
+			font-size: 20px;
+		}
+	}
+
+	.block-link {
+		font-size: 20px;
+	}
+
+	.inspiration-products {
+		text-align: center;
+		margin-top: 60px;
+
+		h2 {
+			font-size: 40px;
+		}
+
+		p {
+			font-size: 18px;
+		}
+	}
+
+	.left-table {
+		border-right: 0;
+		border-left: 0;
+		border-radius: 0;
+		width: 100%;
+		margin: 0 auto;
+
+		img {
+			position: absolute;
+			bottom: 20px;
+			left: 0;
+		}
+	}
+
+	.caption-table {
+		p {
+			font-size: 32px;
+			margin-bottom: 10px;
 		}
 	}
 }

@@ -79,7 +79,7 @@
 			margin-top: 2px;
 			right: 0;
 			background-color: $accent;
-			border-radius: 4px;
+			border-radius: $border-radius;
 			transition: width 0.4s ease;
 		}
 
@@ -106,10 +106,10 @@
 		margin-top: 110px;
 		padding: 25px 0;
 		visibility: hidden;
-		color: $white;
+		color: white;
 		background-color: $accent;
 		text-align: center;
-		border-radius: 4px;
+		border-radius: $border-radius;
 		z-index: 1;
 	}
 
@@ -123,21 +123,21 @@
 		border: 0;
 		outline: none;
 		font-size: 24px;
-		color: $white;
+		color: white;
 		background-color: transparent
 	}
 
 	input[type=search]::-webkit-input-placeholder {
-		color: rgba($white, 0.8);
+		color: rgba(white, 0.8);
 	}
 
 	input[type=search]::-moz-placeholder {
-		color: rgba($white, 0.8);
+		color: rgba(white, 0.8);
 		opacity: 1;
 	}
 
 	input[type=search]::--ms-input-placeholder {
-		color: rgba($white, 0.8);
+		color: rgba(white, 0.8);
 	}
 }
 
@@ -197,7 +197,7 @@
 			right: 0;
 			bottom: -4px;
 			background-color: $accent;
-			border-radius: 4px;
+			border-radius: $border-radius;
 			transition: width 0.4s ease;
 		}
 	}
@@ -225,7 +225,7 @@
 		outline: none;
 		font-size: 24px;
 		color: $secondary;
-		$white-space: nowrap;
+		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		font-weight: 300;
