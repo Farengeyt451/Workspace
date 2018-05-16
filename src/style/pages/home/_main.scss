@@ -186,24 +186,28 @@
 }
 
 .desk-and-tables {
-	margin: 120px 0 100px 0;
+	margin-top: 120px;
 
 	.row {
 		margin-bottom: 80px;
 	}
 }
 
-.left-table {
+.common-furniture {
 	position: relative;
 	border: 1px solid $accent;
 	border-radius: $border-radius;
+}
+
+.left-table {
+	@extend .common-furniture;
 	width: 580px;
 	height: 350px;
 	margin: 0 auto;
 
 	img {
-		width: 100%;
 		position: absolute;
+		width: 100%;
 		bottom: 20px;
 		left: 50px;
 	}
@@ -212,7 +216,7 @@
 .caption-table {
 	position: absolute;
 	top: -30px;
-	left: 15px;
+	left: 14px;
 	z-index: 2;
 	background-color: white;
 	box-shadow: 50px 0 50px white, 0 50px 50px white;
@@ -261,23 +265,17 @@
 	}
 }
 
-.justify-right {
-	justify-content: flex-end;
-}
-
 .left-organizer {
+	@extend .common-furniture;
 	width: 370px;
 	height: 420px;
 	margin-left: auto;
-	position: relative;
-	border: 1px solid $accent;
-	border-radius: $border-radius;
 
 	img {
 		width: 100%;
 		position: absolute;
 		top: 20px;
-		left: -10%;
+		left: -80px;
 	}
 }
 
@@ -286,15 +284,8 @@
 	box-shadow: 0 10px 10px white, 0 -10px 10px white;
 }
 
-.align-chair {
-	display: flex;
-	align-items: flex-end;
-}
-
 .right-chair{
-	position: relative;
-	border: 1px solid $accent;
-	border-radius: $border-radius;
+	@extend .common-furniture;
 	width: 580px;
 	height: 350px;
 	margin-left: auto;
@@ -308,4 +299,69 @@
 
 .caption-chair {
 	top: 50%;
+}
+
+.right-wall-sh {
+	@extend .common-furniture;
+	width: 510px;
+	height: 420px;
+	margin-left: auto;
+
+	img {
+		position: absolute;
+		right: 25px;
+		top: 100px;
+	}
+}
+
+.caption-wall-sh {
+	bottom: 0;
+	top: auto;
+	left: 55px;
+	transform: translateY(50%);
+	box-shadow: 20px 0 20px white, -42px 0 20px white;
+}
+
+.catalogs-tools {
+	height: 420px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-left: auto;
+	text-align: center;
+
+	.row {
+		margin: 0;
+	}
+
+	img {
+		opacity: 0.6;
+		border-radius: $border-radius;
+	}
+
+	a {
+		position: relative;
+		text-decoration: none;
+		font-size: 24px;
+		color: $secondary;
+
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			width: 0;
+			height: 4px;
+			margin-top: 2px;
+			right: 0;
+			background-color: $accent;
+			border-radius: $border-radius;
+			transition: width 0.4s ease;
+		}
+
+		&:hover::after,
+		&:focus::after {
+			width: 100%;
+			left: 0;
+		}
+	}
 }

@@ -1,3 +1,11 @@
+@media screen and (max-width: 1199px) {
+	.left-organizer {
+		img {
+			left: -10px;
+		}
+	}
+}
+
 @media screen and (max-width: 991px) {
 	.desk-and-tables {
 		.row {
@@ -28,7 +36,7 @@
 
 		img {
 			position: static;
-			width: 80%;
+			width: 70%;
 			margin: 60px 0;
 		}
 	}
@@ -50,7 +58,7 @@
 
 		img {
 			position: static;
-			width: 60%;
+			width: 55%;
 		}
 	}
 	.caption-chair {
@@ -134,7 +142,7 @@
 	}
 
 	.caption-table {
-		box-shadow: none;
+		box-shadow: 25px 0 10px white;
 		p {
 			font-size: 32px;
 			margin-bottom: 10px;
@@ -168,7 +176,7 @@
 	}
 
 	.desk-and-tables {
-		margin: 80px 0 100px 0;
+		margin-top: 80px;
 	}
 
 	.caption-table {
