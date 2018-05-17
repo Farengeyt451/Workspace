@@ -5,3 +5,34 @@
 	padding: 0 15px;
 	overflow-x: hidden;
 }
+
+a {
+	text-decoration: none;
+}
+
+a, p, span, h1, h2 {
+	color: $secondary;
+}
+
+.link-hover {
+	position: relative;
+
+	&::after {
+		content: "";
+		display: block;
+		position: absolute;
+		width: 0;
+		height: 4px;
+		margin-top: 2px;
+		right: 0;
+		background-color: $accent;
+		border-radius: $border-radius;
+		transition: width 0.4s ease;
+	}
+
+	&:hover::after,
+	&:focus::after {
+		width: 100%;
+		left: 0;
+	}
+}

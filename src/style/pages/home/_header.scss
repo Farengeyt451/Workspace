@@ -1,6 +1,8 @@
 // ------
-// Header
+// HEADER
 // ------
+
+
 .header-wrapper {
 	min-height: 100vh;
 	display: flex;
@@ -11,13 +13,9 @@
 // ---------------------
 // Top menu/Logo/Sign-in
 // ---------------------
+
 .top-menu {
 	height: 110px;
-
-	a {
-		text-decoration: none;
-		color: $secondary;
-	}
 
 	.row {
 		height: 100%;
@@ -94,6 +92,7 @@
 // --------------------------
 // Top menu/Popup search menu
 // --------------------------
+
 .popup-search {
 	position: relative;
 	user-select: none;
@@ -142,10 +141,10 @@
 }
 
 @keyframes fadeIn {
-	from {
+	0% {
 		opacity: 0;
 	}
-	to {
+	100% {
 		opacity: 1;
 	}
 }
@@ -153,6 +152,7 @@
 // -----------------------------
 // Middle search area/Intro text
 // -----------------------------
+
 .search-area {
 	display: flex;
 	flex: 1;
@@ -175,7 +175,6 @@
 .intro-text {
 	text-align: center;
 	margin-bottom: 65px;
-	color: $secondary;
 
 	h1 {
 		font-weight: 300;
@@ -204,7 +203,6 @@
 }
 
 .input-field {
-	// display: inline-block;
 	position: relative;
 
 	i {
