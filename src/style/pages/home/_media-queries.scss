@@ -20,6 +20,19 @@
 		background-position: inherit;
 		margin: 80px 0;
 		padding: 20px 0;
+
+		p, a {
+			z-index: 1;
+		}
+
+		&::after {
+			content: " ";
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			background-color: rgba($accent, 0.8);
+			z-index: 0;
+		}
 	}
 
 	.left-organizer {
@@ -66,9 +79,31 @@
 		// left: 60px;
 		transform: translateY(-50%);
 	}
+
+	.right-wall-sh {
+		width: 100%;
+		height: auto;
+		margin: auto 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 0;
+		border-bottom: 1px solid $accent;
+		border-radius: 0;
+
+		img {
+			position: static;
+			width: 100%;
+			margin: 40px 0;
+		}
+	}
+
+	.caption-wall-sh {
+		left: 0;
+	}
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 	.nav-drill {
 		ul {
 			li {
@@ -143,10 +178,56 @@
 
 	.caption-table {
 		box-shadow: 25px 0 10px white;
+
 		p {
 			font-size: 32px;
 			margin-bottom: 10px;
 		}
+	}
+
+	.caption-chair {
+		box-shadow: 0 25px 10px white, 0 -25px 10px white;
+	}
+
+	.catalogs-tools {
+		height: auto;
+	}
+
+	.catalogs {
+		position: relative;
+		height: auto;
+		text-align: center;
+		background-position: inherit;
+		padding: 20px 0;
+		margin: 40px 0 20px 0;
+		background-image: url("../img/home/products/catalog-bg.jpg");
+		background-position: center;
+		border-radius: $border-radius;
+
+		&::after {
+			content: "";
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			background-color: rgba($accent, 0.8);
+			z-index: 0;
+		}
+
+		a {
+			font-size: 24px;
+			color: white;
+			z-index: 1;
+
+			&::after {
+				background-color: white;
+			}
+		}
+	}
+
+	.planning-tools {
+		@extend .catalogs;
+		background-image: url("../img/home/products/tools-bg.jpg");
+		margin: 20px 0 40px 0;
 	}
 }
 
@@ -161,6 +242,17 @@
 	.input-field {
 		input[type=search] {
 			font-size: 18px;
+		}
+	}
+
+	.gallery {
+		.caption-text {
+			h2 {
+				font-size: 20px;
+			}
+			p {
+				font-size: 16px;
+			}
 		}
 	}
 
