@@ -1,5 +1,5 @@
-main
-	.content-wrapper
+.content-wrapper
+	.container
 		.row
 			.col-12
 				.editor-choices
@@ -78,7 +78,7 @@ main
 			.row.justify-content-end
 				.col-md-auto
 					a.block-link(href="#/") Explore
-		.inspiration-products
+		.page-heading
 			h2 Inspiration Products
 			p Get your inspiration stuff here with best value
 		.desk-and-tables
@@ -125,3 +125,38 @@ main
 						a.block-link(href="#/") Collection
 					.right-wall-sh
 						img(src="img/home/products/wall-shelve.png", alt="Wall Shelve")
+		.page-heading
+			h2 Workspace Tutorials
+			p Explore beautiful stories and tutorial from workspaces around the world
+	.workspace-tutorials
+		.owl-nav#owl-nav-outside
+		.container
+			.owl-carousel.owl-theme
+				.item
+					picture
+						source(media="(max-width: 767px)" srcset="img/home/slider/slider-tutorial-sm-1.jpg")
+						img(src="img/home/slider/slider-tutorial-1.jpg", alt="Slider Img 1")
+					.slide-caption
+						h4 Cleaness
+						p Make your workspace stay clean
+				.item
+					picture
+						source(media="(max-width: 767px)" srcset="img/home/slider/slider-tutorial-sm-2.jpg")
+						img(src="img/home/slider/slider-tutorial-2.jpg", alt="Slider Img 2")
+					.slide-caption
+						h4 Room
+						p From messy room to perfect room
+				.item
+					picture
+						source(media="(max-width: 767px)" srcset="img/home/slider/slider-tutorial-sm-3.jpg")
+						img(src="img/home/slider/slider-tutorial-3.jpg", alt="Slider Img 3")
+					.slide-caption
+						h4 Design
+						p Make your room work for you
+				.item
+					picture
+						source(media="(max-width: 767px)" srcset="img/home/slider/slider-tutorial-sm-4.jpg")
+						img(src="img/home/slider/slider-tutorial-4.jpg", alt="Slider Img 4")
+					.slide-caption
+						h4 Design
+						p Make your room work for you

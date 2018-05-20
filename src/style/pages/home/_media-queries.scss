@@ -92,6 +92,17 @@
 	.catalogs-tools {
 		margin-top: 40px;
 	}
+
+	.workspace-tutorials {
+
+		.slide-caption {
+			padding: 20px 10px;
+
+			p {
+				font-size: 24px;
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 767px) {
@@ -137,7 +148,7 @@
 		font-size: 20px;
 	}
 
-	.inspiration-products {
+	.page-heading {
 		text-align: center;
 		margin-top: 60px;
 
@@ -168,7 +179,7 @@
 	}
 
 	.caption-table {
-		box-shadow: 25px 0 10px white;
+		box-shadow: 25px 0 10px #FFF;
 
 		p {
 			font-size: 32px;
@@ -177,7 +188,7 @@
 	}
 
 	.caption-chair {
-		box-shadow: 0 25px 10px white, 0 -25px 10px white;
+		box-shadow: 0 25px 10px #FFF, 0 -25px 10px #FFF;
 	}
 
 	.catalogs-tools {
@@ -199,6 +210,8 @@
 		&::after {
 			content: "";
 			position: absolute;
+			left: 0;
+			top: 0;
 			height: 100%;
 			width: 100%;
 			background-color: rgba($accent, 0.8);
@@ -208,11 +221,11 @@
 
 		a {
 			font-size: 24px;
-			color: white;
+			color: #FFF;
 			z-index: 1;
 
 			&::after {
-				background-color: white;
+				background-color: #FFF;
 			}
 		}
 	}
@@ -221,6 +234,25 @@
 		@extend .catalogs;
 		background-image: url("../img/home/products/tools-bg.jpg");
 		margin: 20px 0 40px 0;
+	}
+
+	.workspace-tutorials {
+		margin-top: 60px;
+
+		.slide-caption {
+			padding: 20px 10px;
+
+			h4 {
+				font-size: 20px;
+			}
+			p {
+				font-size: 28px;
+			}
+		}
+	}
+
+	.owl-nav {
+		display: none;
 	}
 }
 
@@ -249,7 +281,7 @@
 		}
 	}
 
-	.inspiration-products {
+	.page-heading {
 		h2 {
 			font-size: 38px;
 			margin-bottom: 18px;

@@ -3,15 +3,16 @@
 	max-width: 1470px;
 	margin: 0 auto;
 	padding: 0 15px;
-	overflow-x: hidden;
+	// overflow-x: hidden;
 }
 
 a {
 	text-decoration: none;
 }
 
-a, p, span, h1, h2 {
+a, p, span, h1, h2, h3, h4 {
 	color: $secondary;
+	margin: 0;
 }
 
 .link-hover {

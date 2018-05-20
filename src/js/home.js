@@ -21,7 +21,7 @@ $(document).on("click", function(event) {
 	}
 });
 
-// Trigger hamburger meu
+// Trigger hamburger menu
 hamburger.on("click", function(){
 	triggerHamburger();
 });
@@ -35,3 +35,33 @@ function closeHamburger() {
 	hamburger.removeClass("hamburger-active");
 	body.removeClass("nav-is-toggled");
 }
+
+// Fire owl-carousel
+$(document).ready(function(){
+	$(".owl-carousel").owlCarousel({
+		items: 4,
+		loop: true,
+		// autoplay: true,
+		autoplayTimeout: 5000,
+		autoplayHoverPause: true,
+		margin: 30,
+		nav: true,
+		dots: true,
+		navContainer: "#owl-nav-outside",
+		navText : ["",""],
+		responsive:{
+			0:{
+				items:1,
+				dots: true
+			},
+			480:{
+				items:1,
+				dots: true
+			},
+			768:{
+				items:3,
+				dots: false
+			}
+		}
+	});
+});

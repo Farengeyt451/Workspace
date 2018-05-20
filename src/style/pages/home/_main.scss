@@ -6,6 +6,9 @@
 // ---------------------
 // Gallery caption block
 // ---------------------
+.content-wrapper {
+	position: relative;
+}
 
 .editor-choices {
 	margin-top: 50px;
@@ -37,7 +40,7 @@
 	padding-top: 15px;
 	position: relative;
 	background-color: $accent;
-	color: white;
+	color: #FFF;
 	font-size: 11px;
 	text-align: center;
 	text-transform: uppercase;
@@ -54,7 +57,7 @@
 		bottom: 0;
 		width: 0;
 		height: 0;
-		border-bottom: 12px solid white;
+		border-bottom: 12px solid #FFF;
 		border-left: 12px solid transparent;
 		border-right: 12px solid transparent;
 	}
@@ -113,7 +116,7 @@
 		height: 100%;
 		opacity: 0;
 		background-color: rgba($accent, 0.6);
-		color: white;
+		color: #FFF;
 		transition: all 0.45s ease-in-out;
 	}
 
@@ -126,17 +129,17 @@
 		align-items: center;
 		z-index: 2;
 		text-align: center;
-		color: white;
-		font-weight: 300;
+		color: #FFF;
 
 		h2 {
-			color: white;
+			color: #FFF;
 			text-transform: uppercase;
 			font-size: 24px;
+			margin-bottom: 25px;
 		}
 
 		p {
-			color: white;
+			color: #FFF;
 		}
 	}
 }
@@ -155,8 +158,8 @@
 	font-weight: 300;
 
 	&::after {
-		content: "\f105";
-		margin-left: 5px;
+		content: "\f054";
+		margin-left: 10px;
 		font-family: "Font Awesome 5 Free";
 		font-weight: 900;
 		font-size: 24px;
@@ -168,7 +171,7 @@
 	&:hover,
 	&:focus {
 		&::after {
-			margin-left: 10px;
+			margin-left: 15px;
 		}
 	}
 }
@@ -177,7 +180,7 @@
 // Inspiration products block
 // --------------------------
 
-.inspiration-products {
+.page-heading {
 	text-align: center;
 	margin-top: 60px;
 
@@ -194,7 +197,7 @@
 }
 
 .desk-and-tables {
-	margin-top: 120px;
+	margin: 120px 0;
 
 	.row {
 		margin-bottom: 80px;
@@ -226,8 +229,8 @@
 	top: -30px;
 	left: 14px;
 	z-index: 2;
-	background-color: white;
-	box-shadow: 50px 0 50px white, 0 50px 50px white;
+	background-color: #FFF;
+	box-shadow: 50px 0 50px #FFF, 0 50px 50px #FFF;
 
 	p {
 		font-size: 40px;
@@ -249,7 +252,7 @@
 	text-align: center;
 	font-size: 24px;
 	text-transform: uppercase;
-	color: white;
+	color: #FFF;
 	border-radius: $border-radius;
 	background-image: url("../img/home/products/get-all.jpg");
 	background-position: center;
@@ -267,12 +270,13 @@
 	}
 
 	p, a {
-		color: white;
+		color: #FFF;
 		z-index: 1;
 	}
 
 	p {
 		margin-top: 0;
+		margin-bottom: 25px;
 	}
 
 	a {
@@ -281,7 +285,7 @@
 		position: relative;
 
 		&::after {
-			background-color: white;
+			background-color: #FFF;
 		}
 	}
 }
@@ -302,7 +306,7 @@
 
 .caption-organizer {
 	top: 50%;
-	box-shadow: 0 10px 10px white, 0 -10px 10px white;
+	box-shadow: 0 10px 10px #FFF, 0 -10px 10px #FFF;
 }
 
 .right-chair{
@@ -340,7 +344,7 @@
 	top: auto;
 	left: 55px;
 	transform: translateY(50%);
-	box-shadow: 20px 0 20px white, -42px 0 20px white;
+	box-shadow: 20px 0 20px #FFF, -42px 0 20px #FFF;
 }
 
 .catalogs-tools {
@@ -383,4 +387,105 @@
 			left: 0;
 		}
 	}
+}
+
+
+// Carousel
+.workspace-tutorials {
+	margin-top: 100px;
+	text-align: center;
+	position: relative;
+
+	img {
+		border-top-right-radius: 4px;
+		border-top-left-radius: 4px;
+	}
+
+	.slide-caption {
+		padding: 20px 50px;
+		border: 1px solid $accent;
+		border-top: 0;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+		min-height: 200px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+
+		h4 {
+			font-size: 14px;
+			font-weight: 300;
+			text-transform: uppercase;
+			letter-spacing: 2.8px;
+		}
+
+		p {
+			font-size: 24px;
+			font-weight: 300;
+			line-height: 32px;
+		}
+	}
+}
+
+// Carousel navigation
+.owl-nav {
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 2;
+	width: 100%;
+
+
+	.owl-prev {
+		background-color: transparent;
+		font-size: 80px;
+		border: 0;
+		outline: 0;
+
+		&::before {
+			content: "\f053";
+			font-family: "Font Awesome 5 Free";
+			font-weight: 900;
+			font-size: 28px;
+			color: rgba($accent, 0.7);
+			transition: all 0.2s ease-in-out;
+		}
+	}
+
+	.owl-next {
+		@extend .owl-prev;
+
+		&::before {
+			content: "";
+		}
+
+		&::after {
+			content: "\f054";
+			font-family: "Font Awesome 5 Free";
+			font-weight: 900;
+			font-size: 28px;
+			color: rgba($accent, 0.7);
+			transition: all 0.2s ease-in-out;
+		}
+	}
+}
+
+// IE fallback for flexbox (flex: 1)
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.slide-caption {
+		display: inline-block !important;
+		width: 100%;
+
+		h4 {
+			margin-top: 30px;
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.owl-theme .owl-dots, .owl-theme .owl-nav {
+	margin: 20px;
 }

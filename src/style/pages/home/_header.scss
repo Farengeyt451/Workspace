@@ -8,6 +8,10 @@
 	display: flex;
 	flex-direction: column;
 	position: relative;
+	max-width: 1470px;
+	margin: 0 auto;
+	padding: 0 15px;
+	overflow-x: hidden;
 }
 
 // ---------------------
@@ -105,7 +109,7 @@
 		margin-top: 110px;
 		padding: 25px 0;
 		visibility: hidden;
-		color: white;
+		color: #FFF;
 		background-color: $accent;
 		text-align: center;
 		border-radius: $border-radius;
@@ -122,21 +126,21 @@
 		border: 0;
 		outline: none;
 		font-size: 24px;
-		color: white;
+		color: #FFF;
 		background-color: transparent
 	}
 
 	input[type=search]::-webkit-input-placeholder {
-		color: rgba(white, 0.8);
+		color: rgba(#FFF, 0.8);
 	}
 
 	input[type=search]::-moz-placeholder {
-		color: rgba(white, 0.8);
+		color: rgba(#FFF, 0.8);
 		opacity: 1;
 	}
 
 	input[type=search]::--ms-input-placeholder {
-		color: rgba(white, 0.8);
+		color: rgba(#FFF, 0.8);
 	}
 }
 

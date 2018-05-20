@@ -50,8 +50,8 @@ var path = {
 		style: ["src/style/*.scss", "src/style/pages/*.scss"],
 		img: "src/img/**/*.*",
 		fonts: "src/fonts/**/*.*",
-		libsJS: ["node_modules/jquery/dist/jquery.min.js"],
-		libsCSS: [" "]
+		libsJS: ["node_modules/jquery/dist/jquery.min.js", "node_modules/owl.carousel/dist/owl.carousel.min.js"],
+		libsCSS: ["node_modules/owl.carousel/dist/assets/owl.carousel.min.css", "node_modules/owl.carousel/dist/assets/owl.theme.default.min.css"]
 	},
 	watch: {					// Указываем за изменением каких файлов наблюдать
 		html: "src/**/*.pug",
