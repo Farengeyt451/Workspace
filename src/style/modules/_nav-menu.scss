@@ -1,0 +1,141 @@
+.burger-menu {
+	position: relative;
+	width: 35px;
+	height: 30px;
+	cursor: pointer;
+}
+
+.hamburger {
+	display: block;
+	position: absolute;
+	top: calc(50% - 2.5px);
+	left: 0;
+	width: 35px;
+	height: 4px;
+	border-radius: 20px;
+	background-color: $secondary;
+	transition: 0.5s ease-in-out;
+	transform-origin: center;
+
+	&::after,
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		right: 0;
+		width: 25px;
+		height: 100%;
+		background-color: $secondary;
+		border-radius: 5px;
+		transition: 0.5s ease-in-out;
+	}
+
+	&::before {
+		top: -11px;
+	}
+
+	&::after {
+		bottom: -11px;
+	}
+}
+
+.hamburger-active {
+	.hamburger {
+		transform: rotate(45deg);
+
+		&::after {
+			transform: rotate(90deg);
+			bottom: 0;
+			width: 35px;
+		}
+
+		&::before {
+			top: 0;
+			width: 35px;
+			transform: rotate(90deg);
+		}
+	}
+}
+
+.nav-is-toggled {
+	.nav-drill {
+		visibility: visible;
+		transform: translateX(0);
+	}
+}
+
+.nav-drill {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 110px;
+	transform: translateX(100%);
+	visibility: hidden;
+	z-index: 10;
+	min-height: calc(100vh - 110px);
+	background-color: $white;
+	overflow-y: auto;
+	overflow-x: hidden;
+	transition: 0.45s;
+	border-radius: 4px;
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		list-style: none;
+		text-align: center;
+		transition: 0.25s 0s ease-in-out;
+		margin: 0 auto;
+		padding: 20px 0;
+	}
+
+	li {
+		font-size: 38px;
+		letter-spacing: 2px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	a {
+		display: inline-block;
+		color: $secondary;
+		text-decoration: none;
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			display: block;
+			width: 0;
+			height: 5px;
+			margin-top: 2px;
+			right: 0;
+			background-color: $accent;
+			border-radius: 4px;
+			transition: width 0.4s ease;
+		}
+
+		&:hover::after,
+		&:focus::after {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+// IE fallback for flexbox
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.nav-drill {
+		ul {
+			width: 100%;
+			height: calc(100vh - 110px);
+		}
+	}
+}

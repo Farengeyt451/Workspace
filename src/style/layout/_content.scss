@@ -1,0 +1,391 @@
+// -------
+// CONTENT
+// -------
+
+
+// ---------------------
+// Gallery caption block
+// ---------------------
+.content-wrapper {
+	position: relative;
+}
+
+.editor-choices {
+	margin-top: 50px;
+	margin-bottom: 10px;
+
+	span {
+		font-size: 24px;
+		position: relative;
+		margin-left: 15px;
+
+		&::after {
+			content: ' ';
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 4px;
+			background-color: $accent;
+			left: 0;
+			bottom: -4px;
+			border-radius: $border-radius;
+		}
+	}
+}
+
+.flag {
+	display: inline-block;
+	width: 24px;
+	height: 50px;
+	padding-top: 15px;
+	position: relative;
+	background-color: $accent;
+	color: $white;
+	font-size: 11px;
+	text-align: center;
+	text-transform: uppercase;
+
+	i {
+		margin-left: 2px;
+		font-size: 14px;
+	}
+
+	&::after {
+		content: ' ';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 0;
+		height: 0;
+		border-bottom: 12px solid $white;
+		border-left: 12px solid transparent;
+		border-right: 12px solid transparent;
+	}
+}
+
+// --------------
+// Middle gallery
+// --------------
+
+.gallery {
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		transition: all 0.4s ease-in-out;
+	}
+
+	.gallery-item {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+
+	.top {
+		position: relative;
+		margin: 15px 0;
+		overflow: hidden;
+		border-radius: $border-radius;
+
+		&:hover,
+		&:focus {
+
+			img {
+				transform: scale(1.05);
+			}
+
+			.caption-img {
+				opacity: 1;
+			}
+		}
+	}
+
+	.bot {
+		@extend .top;
+	}
+
+	.mid {
+		@extend .top;
+	}
+
+	.caption-img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		background-color: rgba($accent, 0.6);
+		color: $white;
+		transition: all 0.45s ease-in-out;
+	}
+
+	.caption-text {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		align-items: center;
+		z-index: 2;
+		text-align: center;
+		color: $white;
+
+		h2 {
+			color: $white;
+			text-transform: uppercase;
+			font-size: 24px;
+			margin-bottom: 25px;
+		}
+
+		p {
+			color: $white;
+		}
+	}
+}
+
+// ------------------------------
+// Link 'explore' & 'collections'
+// ------------------------------
+
+.gallery-explore {
+	margin-top: 25px;
+}
+
+.block-link {
+	font-size: 24px;
+	line-height: 30px;
+	font-weight: 300;
+
+	&::after {
+		content: '\f054';
+		margin-left: 10px;
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 900;
+		font-size: 24px;
+		vertical-align: bottom;
+		color: rgba($accent, 0.7);
+		transition: all 0.2s ease-in-out;
+	}
+
+	&:hover,
+	&:focus {
+		&::after {
+			margin-left: 15px;
+		}
+	}
+}
+
+// --------------------------
+// Inspiration products block
+// --------------------------
+
+.page-heading {
+	text-align: center;
+	margin-top: 60px;
+
+	h2 {
+		font-size: 48px;
+		font-weight: 400;
+		margin-bottom: 18px;
+	}
+
+	p {
+		font-size: 24px;
+		color: lighten($secondary, 25%);
+	}
+}
+
+.desk-and-tables {
+	margin: 120px 0;
+
+	.row {
+		margin-bottom: 80px;
+	}
+}
+
+.common-furniture {
+	position: relative;
+	border: 1px solid $accent;
+	border-radius: $border-radius;
+}
+
+.left-table {
+	@extend .common-furniture;
+	width: 580px;
+	height: 350px;
+	margin: 0 auto;
+
+	img {
+		position: absolute;
+		width: 100%;
+		bottom: 20px;
+		left: 50px;
+	}
+}
+
+.caption-table {
+	position: absolute;
+	top: -30px;
+	left: 14px;
+	z-index: 2;
+	background-color: $white;
+	box-shadow: 50px 0 50px $white, 0 50px 50px $white;
+
+	p {
+		font-size: 40px;
+		font-weight: 300;
+		line-height: 48px;
+		margin-bottom: 20px;
+		margin-top: 0;
+	}
+}
+
+.get-all {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 350px;
+	text-align: center;
+	font-size: 24px;
+	text-transform: uppercase;
+	color: $white;
+	border-radius: $border-radius;
+	background-image: url('../img/main/products/get-all.jpg');
+	background-position: center;
+
+	&::after {
+		content: ' ';
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background-color: rgba($accent, 0.8);
+		z-index: 0;
+		border-radius: $border-radius;
+	}
+
+	p,
+	a {
+		color: $white;
+		z-index: 1;
+	}
+
+	p {
+		margin-top: 0;
+		margin-bottom: 25px;
+	}
+
+	a {
+		font-weight: 900;
+		transition: all 0.2s ease;
+		position: relative;
+
+		&::after {
+			background-color: $white;
+		}
+	}
+}
+
+.left-organizer {
+	@extend .common-furniture;
+	width: 370px;
+	height: 420px;
+	margin-left: auto;
+
+	img {
+		width: 100%;
+		position: absolute;
+		top: 20px;
+		left: -80px;
+	}
+}
+
+.caption-organizer {
+	top: 50%;
+	box-shadow: 0 10px 10px $white, 0 -10px 10px $white;
+}
+
+.right-chair {
+	@extend .common-furniture;
+	width: 580px;
+	height: 350px;
+	margin-left: auto;
+
+	img {
+		position: absolute;
+		right: 0;
+		bottom: 20px;
+	}
+}
+
+.caption-chair {
+	top: 50%;
+}
+
+.right-wall-sh {
+	@extend .common-furniture;
+	width: 510px;
+	height: 420px;
+	margin-left: auto;
+
+	img {
+		position: absolute;
+		right: 25px;
+		top: 100px;
+	}
+}
+
+.caption-wall-sh {
+	bottom: 0;
+	top: auto;
+	left: 55px;
+	transform: translateY(50%);
+	box-shadow: 20px 0 20px $white, -42px 0 20px $white;
+}
+
+.catalogs-tools {
+	height: 420px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-left: auto;
+	text-align: center;
+
+	.row {
+		margin: 0;
+	}
+
+	img {
+		opacity: 0.6;
+		border-radius: $border-radius;
+	}
+
+	a {
+		position: relative;
+		font-size: 24px;
+
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			width: 0;
+			height: 4px;
+			margin-top: 2px;
+			right: 0;
+			background-color: $accent;
+			border-radius: $border-radius;
+			transition: width 0.4s ease;
+		}
+
+		&:hover::after,
+		&:focus::after {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
