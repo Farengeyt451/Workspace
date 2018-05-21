@@ -21,6 +21,14 @@ button {
 	font-family: inherit;
 }
 
+input {
+	border: 0;
+	outline: none;
+	width: 100%;
+	color: $white;
+	background-color: transparent
+}
+
 input::-ms-clear {
 	display: none;
 }

@@ -103,6 +103,19 @@
 			}
 		}
 	}
+
+	.subcribe {
+		text-align: center;
+
+		form {
+			padding: 0 20px;
+		}
+
+		p {
+			padding: 0 20px;
+			margin-bottom: 20px;
+		}
+	}
 }
 
 @media screen and (max-width: 767px) {

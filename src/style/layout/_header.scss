@@ -159,7 +159,7 @@
 		transition: 0.2s ease;
 	}
 
-	input[type=search] {
+	input[type='search'] {
 		width: 100%;
 		padding: 12px 50px 12px 25px;
 		border: 1px solid rgba($accent, 0.5);
@@ -182,18 +182,18 @@
 		}
 	}
 
-	input[type=search]::-webkit-input-placeholder {
+	input[type='search']::-webkit-input-placeholder {
 		color: rgba($secondary, 0.3);
 		font-weight: 300;
 	}
 
-	input[type=search]::-moz-placeholder {
+	input[type='search']::-moz-placeholder {
 		color: rgba($secondary, 0.3);
 		font-weight: 300;
 		opacity: 1;
 	}
 
-	input[type=search]::--ms-input-placeholder {
+	input[type='search']::--ms-input-placeholder {
 		color: rgba($secondary, 0.3) !important;
 		font-weight: 300 !important;
 	}

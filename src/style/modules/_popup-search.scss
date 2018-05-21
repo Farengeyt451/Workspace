@@ -22,25 +22,20 @@
 		animation: fadeIn 1s;
 	}
 
-	input[type=search] {
-		width: 100%;
-		border: 0;
-		outline: none;
+	input[type='search'] {
 		font-size: 24px;
-		color: $white;
-		background-color: transparent
 	}
 
-	input[type=search]::-webkit-input-placeholder {
+	input[type='search']::-webkit-input-placeholder {
 		color: rgba($white, 0.8);
 	}
 
-	input[type=search]::-moz-placeholder {
+	input[type='search']::-moz-placeholder {
 		color: rgba($white, 0.8);
 		opacity: 1;
 	}
 
-	input[type=search]::--ms-input-placeholder {
+	input[type='search']::--ms-input-placeholder {
 		color: rgba($white, 0.8);
 	}
 }
