@@ -1,6 +1,6 @@
 'use strict';
 
-const hamburger = $('.burger-menu'),
+var 	hamburger = $('.burger-menu'),
 			popupTrigger = $('#popupSearch'),
 			popupSearh = $('.popup-text'),
 			popupSearhWrapper = $('.popup-search'),

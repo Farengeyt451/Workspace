@@ -75,7 +75,7 @@ var path = {
 		manifest: 'src/manifest.json',
 	},
 	copydest: {
-		fontawesom: 'build/fonts/webfonts/'
+		fontawesom: 'src/fonts/webfonts/'
 	}
 };
 
@@ -180,7 +180,7 @@ gulp.task('fonts:build', function() {
 });
 
 // Gulp task - 'Run assembly'
-gulp.task('build', gulp.parallel('copy', 'html:build', 'js:build', 'style:build', 'img:build', 'fonts:build', 'libsJS:concat', 'libsCSS:concat'));
+gulp.task('build', gulp.series('copy', gulp.parallel('html:build', 'js:build', 'style:build', 'img:build', 'fonts:build', 'libsJS:concat', 'libsCSS:concat')));
 
 // Gulp task - 'Clean build folder'
 gulp.task('build:clean', function () {
