@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg4525"
+   version="1.1"
+   viewBox="0 0 36.081387 36.081386"
+   height="36.081387mm"
+   width="36.081387mm"
+   sodipodi:docname="site-icon.svg"
+   inkscape:version="0.92.1 r15371">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="703"
+     id="namedview9"
+     showgrid="false"
+     inkscape:zoom="1.7305784"
+     inkscape:cx="58.073071"
+     inkscape:cy="68.185297"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4525" />
+  <defs
+     id="defs4519" />
+  <metadata
+     id="metadata4522">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(24.455162,-6.7726898)"
+     id="layer2">
+    <circle
+       r="18.040693"
+       cy="24.813383"
+       cx="-6.4144688"
+       id="path5079"
+       style="fill:#b18e70;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.64583325;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+  <g
+     style="display:inline;fill:#ffffff"
+     transform="translate(-31.817105,-93.20167)"
+     id="layer1">
+    <path
+       id="path36"
+       style="font-weight:700;font-size:medium;line-height:100px;font-family:Helvetica, Arial, sans-serif;letter-spacing:-3.61999989;dominant-baseline:text-before-edge;fill:#ffffff;stroke-width:0.26458332"
+       d="m 55.674847,120.32953 4.838986,-17.46347 h -3.808905 l -2.611136,13.10359 -2.826734,-13.10359 h -3.545396 l -2.706957,13.07963 -2.706957,-13.07963 h -3.808905 l 4.934807,17.46347 h 3.233976 l 2.850689,-13.63061 2.922557,13.63061 z" />
+  </g>
+</svg>

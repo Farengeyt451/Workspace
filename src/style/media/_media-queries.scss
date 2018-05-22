@@ -1,4 +1,4 @@
-@media screen and (max-width: 1199px) {
+@include media-breakpoint-down(lg) {
 	.left-organizer {
 		img {
 			left: -10px;
@@ -6,7 +6,7 @@
 	}
 }
 
-@media screen and (max-width: 991px) {
+@include media-breakpoint-down(md) {
 	.desk-and-tables {
 		.row {
 			margin-bottom: 0;
@@ -116,9 +116,28 @@
 			margin-bottom: 20px;
 		}
 	}
+
+	.footer-wrapper {
+
+		.left-side {
+			align-items: center;
+		}
+
+		.description {
+			text-align: center;
+		}
+
+		.markets {
+			justify-content: space-evenly;
+		}
+
+		.learn-more {
+			margin-top: 60px;
+		}
+	}
 }
 
-@media screen and (max-width: 767px) {
+@include media-breakpoint-down(sm) {
 	.nav-drill {
 		ul {
 			li {
@@ -266,6 +285,18 @@
 
 	.owl-nav {
 		display: none;
+	}
+}
+
+@include media-breakpoint-down(xs) {
+	.footer-wrapper {
+
+		.learn-more {
+
+			ul {
+				text-align: center;
+			}
+		}
 	}
 }
 
