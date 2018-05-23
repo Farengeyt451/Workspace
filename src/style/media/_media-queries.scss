@@ -286,6 +286,24 @@
 	.owl-nav {
 		display: none;
 	}
+
+	.footer-wrapper {
+
+		.social {
+			font-size: 24px;
+		}
+
+		.learn-more {
+
+			h4 {
+				text-align: center;
+			}
+
+			ul {
+				font-size: 18px;
+			}
+		}
+	}
 }
 
 @include media-breakpoint-down(xs) {
