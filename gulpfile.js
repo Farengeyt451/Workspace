@@ -52,11 +52,13 @@ var path = {
 		fonts: 'src/fonts/**/*.*',
 		libsJS: [
 			'node_modules/jquery/dist/jquery.min.js',
-			'node_modules/owl.carousel/dist/owl.carousel.min.js'
+			'node_modules/owl.carousel/dist/owl.carousel.min.js',
+			'node_modules/jquery-modal/jquery.modal.min.js'
 		],
 		libsCSS: [
 			'node_modules/owl.carousel/dist/assets/owl.carousel.min.css',
-			'node_modules/owl.carousel/dist/assets/owl.theme.default.min.css'
+			'node_modules/owl.carousel/dist/assets/owl.theme.default.min.css',
+			'node_modules/jquery-modal/jquery.modal.min.css'
 		]
 	},
 	watch: {

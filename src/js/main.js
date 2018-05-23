@@ -4,19 +4,44 @@ var 	hamburger = $('.burger-menu'),
 			popupTrigger = $('#popupSearch'),
 			popupSearh = $('.popup-text'),
 			popupSearhWrapper = $('.popup-search'),
-			body = $('body');
+			body = $('body'),
+			modalSignIn = $('#openModule');
+
+// Open sign in module
+// Close search popup  & nav menu
+modalSignIn.click(function(event) {
+	$(this).modal({
+		fadeDuration: 400,
+		fadeDelay: 0.4,
+		showClose: false
+	});
+	closeSearchPopup();
+	closeHamburger();
+	return false;
+});
 
 // Open popup search bar
+// Close nav menu
 popupTrigger.on('click', function(){
-	popupSearh.toggleClass('show');
+	toggleSearchPopup();
 	closeHamburger();
 });
+
+// Open popup search bar
+function toggleSearchPopup() {
+	popupSearh.toggleClass('show');
+};
+
+// Close popup search bar
+function closeSearchPopup() {
+	popupSearh.removeClass('show');
+};
 
 // Close popup when click outside search bar
 $(document).on('click', function(event) {
 	if ((!$(event.target).closest(popupTrigger).length)) {
 		if (!$(event.target).closest(popupSearhWrapper).length) {
-				popupSearh.removeClass('show');
+			closeSearchPopup();
 		}
 	}
 });
@@ -26,11 +51,13 @@ hamburger.on('click', function(){
 	triggerHamburger();
 });
 
+// Open hamburger menu
 function triggerHamburger() {
 	hamburger.toggleClass('hamburger-active');
 	body.toggleClass('nav-is-toggled');
 }
 
+// Close hamburger menu
 function closeHamburger() {
 	hamburger.removeClass('hamburger-active');
 	body.removeClass('nav-is-toggled');
@@ -65,3 +92,5 @@ $(document).ready(function(){
 		}
 	});
 });
+
+

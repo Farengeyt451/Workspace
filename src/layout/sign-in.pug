@@ -1,0 +1,20 @@
+#sign-in.sign-in-modal
+	.row
+		.col-6
+			h4 Sign in to your account
+			form#sign-in-form(method='get')
+				input(type='email' name='email' placeholder='Email' requared)
+				input(type='password' name='password' placeholder='Password' requared)
+			p Forgot your password
+			.log-in
+				input.button(type='submit' form='sign-in-form' value='Log in')
+				//- a.button(href='')
+				a.lin(href='')
+					i.fab.fa-google-plus-g
+				a.lin(href='')
+					i.fab.fa-facebook-f
+		.col-6
+			.invert
+				h4 Want to have more inspirations?
+				.log-in
+					a.button.inert(href='') Sign up

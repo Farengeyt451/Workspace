@@ -1,0 +1,82 @@
+.blocker {
+	background-color: rgba($white, 0.8);
+}
+
+.sign-in-modal {
+
+	display: none;
+	box-shadow: 0 0 4px $secondary;
+	border-radius: $border-radius;
+
+	h4 {
+		color: $accent;
+	}
+
+	p {
+		text-align: right;
+	}
+
+	input[type='email'],
+	input[type='password'] {
+		color: darken($accent, 5%);
+		background-color: #E3E3E3;
+		margin: 20px 0;
+		padding: 10px 20px;
+		border-radius: $border-radius;
+	}
+
+	.log-in {
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 70%;
+		// position: absolute;
+		background-color: $accent;
+		padding: 20px 10px;
+		border-radius: $border-radius;
+
+		a {
+			color: $white;
+			font-weight: 900;
+		}
+
+		.button {
+			text-transform: uppercase;
+			border: 0;
+			background-color: transparent;
+			cursor: pointer;
+		}
+
+		a.lin {
+			margin-left: 10px;
+			position: relative;
+
+			&::before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0;
+				left: -4px;
+				height: 100%;
+				width: 2px;
+				background-color: $white;
+			}
+		}
+	}
+
+	.invert {
+
+		.log-in {
+			background-color: $white;
+		}
+
+		h4 {
+			color: $white;
+		}
+
+		a.button {
+			color: $accent;
+		}
+	}
+}
