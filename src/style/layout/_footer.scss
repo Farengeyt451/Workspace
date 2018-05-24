@@ -25,6 +25,13 @@
 		}
 	}
 
+	// IE fallback for flexbox (flex)
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		.description {
+			max-width: 400px;
+		}
+	}
+
 	.markets {
 		display: flex;
 		flex-wrap: wrap;

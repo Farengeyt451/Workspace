@@ -1,19 +1,20 @@
 #sign-in.sign-in-modal
-	.row
+	.row.no-gutters
 		.col-sm-6
-			h4 Sign in to your account
-			form#sign-in-form(method='get')
-				input(type='email' name='email' placeholder='Email' requared)
-				input(type='password' name='password' placeholder='Password' requared)
-			a(href='#/')
-				p Forgot your password?
-			.log-in
-				input.button(type='submit' form='sign-in-form' value='Log in')
-				a(href='')
-					i.fab.fa-google-plus-g
-				a(href='')
-					i.fab.fa-facebook-f
+			.left-sign-in
+				h4 Sign in to your account
+				form#sign-in-form(method='get')
+					input(type='email' name='email' placeholder='Email' requared)
+					input(type='password' name='password' placeholder='Password' requared)
+				a(href='#/')
+					p Forgot your password?
+				.log-in
+					input.sign-in-button(type='submit' form='sign-in-form' value='Log in')
+					a(href='')
+						i.fab.fa-google-plus-g
+					a(href='')
+						i.fab.fa-facebook-f
 		.col-sm-6
-			h4 Want to have more inspirations?
-			.sign-up
-				a.button.inert(href='') Sign up
+			.right-sign-up
+				h4 Want to have more inspirations?
+			a.sign-up-button(href='') Sign up
