@@ -1,3 +1,8 @@
+.modal {
+	max-width: 900px;
+	padding: 40px;
+}
+
 .blocker {
 	background-color: rgba($white, 0.8);
 }
@@ -9,37 +14,62 @@
 	border-radius: $border-radius;
 
 	h4 {
+		font-size: 24px;
+		line-height: 32px;
 		color: $accent;
 	}
 
 	p {
 		text-align: right;
+		font-size: 18px;
+		color: lighten($secondary, 40%);
+		font-weight: 300;
+		letter-spacing: -0.7px;
+		transition: all 0.2s ease;
+
+		&:hover,
+		&:focus {
+			color: $secondary;
+		}
 	}
 
 	input[type='email'],
 	input[type='password'] {
 		color: darken($accent, 5%);
-		background-color: #E3E3E3;
+		background-color: $input-background;
 		margin: 20px 0;
 		padding: 10px 20px;
 		border-radius: $border-radius;
+		font-size: 20px;
+		font-weight: 300;
+	}
+
+	input[type='email']::-webkit-input-placeholder,
+	input[type='password']::-webkit-input-placeholder {
+		color: rgba($accent, 0.7);
+	}
+
+	input[type='email']::-moz-placeholder,
+	input[type='password']::-webkit-input-placeholder {
+		color: rgba($white, 0.7);
+		opacity: 1;
+	}
+
+	input[type='email']::--ms-input-placeholder,
+	input[type='password']::-webkit-input-placeholder {
+		color: rgba($white, 0.7);
 	}
 
 	.log-in {
-
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 70%;
-		// position: absolute;
+		position: absolute;
+		width: 180px;
 		background-color: $accent;
-		padding: 20px 10px;
+		padding: 15px;
 		border-radius: $border-radius;
-
-		a {
-			color: $white;
-			font-weight: 900;
-		}
+		font-size: 20px;
 
 		.button {
 			text-transform: uppercase;
@@ -48,9 +78,11 @@
 			cursor: pointer;
 		}
 
-		a.lin {
-			margin-left: 10px;
+		a {
 			position: relative;
+			margin-left: 10px;
+			color: $white;
+			font-weight: 900;
 
 			&::before {
 				content: '';
@@ -65,11 +97,24 @@
 		}
 	}
 
+.sign-up {
+	@extend .log-in;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	transform: translateY(50%);
+	background-color: $white;
+}
+
 	.invert {
 
-		.log-in {
-			background-color: $white;
-		}
+		// background-color: $accent;
+		height: 100%;
+		background-image: url('../img/sign-in/sign-in.jpg');
+		background-position: center;
+		background-size: cover;
+
+
 
 		h4 {
 			color: $white;
