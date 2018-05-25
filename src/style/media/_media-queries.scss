@@ -118,7 +118,6 @@
 	}
 
 	.footer-wrapper {
-
 		.left-side {
 			align-items: center;
 			margin: auto;
@@ -136,6 +135,36 @@
 			margin-top: 60px;
 		}
 	}
+
+	.sign-in-modal {
+		.left-sign-in {
+
+			h4 {
+				font-size: 22px;
+			}
+
+			p {
+				font-size: 16px;
+			}
+
+			input[type='email'],
+			input[type='password'] {
+				font-size: 18px;
+			}
+
+			.log-in {
+				z-index: 4;
+			}
+		}
+
+		.right-sign-up {
+			min-height: auto;
+
+			h4 {
+				font-size: 30px;
+			}
+		}
+	}
 }
 
 @include media-breakpoint-down(sm) {
@@ -150,7 +179,7 @@
 
 	.sign-in-menu {
 		span {
-			font-size: 18px;
+			font-size: 22px;
 		}
 	}
 
@@ -309,9 +338,7 @@
 
 @include media-breakpoint-down(xs) {
 	.footer-wrapper {
-
 		.learn-more {
-
 			ul {
 				text-align: center;
 			}
@@ -338,6 +365,7 @@
 			h2 {
 				font-size: 20px;
 			}
+
 			p {
 				font-size: 16px;
 			}
@@ -380,10 +408,26 @@
 		display: none;
 	}
 
+	.nav-drill {
+		.sign-in-nav {
+			display: block;
+		}
+	}
+
 	.intro-text {
 		h1 {
 			font-size: 28px;
 		}
+	}
+
+	.left-sign-in {
+		.log-in {
+			left: 15px;
+		}
+	}
+
+	a.sign-up-button {
+		right: 15px;
 	}
 }
 

@@ -128,6 +128,26 @@
 			left: 0;
 		}
 	}
+
+	.sign-in-nav {
+		display: none;
+		position: absolute;
+		right: 0;
+		margin-left: 15px;
+		background-color: $accent;
+		border-radius: $border-radius;
+		padding: 5px 20px;
+		cursor: pointer;
+
+		&::after {
+			height: 0 !important;
+		}
+
+		i {
+			font-size: 20px;
+			color: $white;
+		}
+	}
 }
 
 // IE fallback for flexbox

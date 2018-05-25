@@ -5,11 +5,23 @@ var 	hamburger = $('.burger-menu'),
 			popupSearh = $('.popup-text'),
 			popupSearhWrapper = $('.popup-search'),
 			body = $('body'),
-			modalSignIn = $('#openModule');
+			modalSignIn = $('#openModule'),
+			modalSignInHamb = $('#openModuleHamb');
 
 // Open sign in module
 // Close search popup  & nav menu
 modalSignIn.click(function(event) {
+	$(this).modal({
+		fadeDuration: 400,
+		fadeDelay: 0.4,
+		showClose: false
+	});
+	closeSearchPopup();
+	closeHamburger();
+	return false;
+});
+
+modalSignInHamb.click(function(event) {
 	$(this).modal({
 		fadeDuration: 400,
 		fadeDelay: 0.4,
