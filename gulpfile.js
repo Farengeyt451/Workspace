@@ -10,6 +10,10 @@ const gulp = require('gulp'),
 			del = require('del'),
 			gulpIf = require('gulp-if'),
 			imagemin = require('gulp-imagemin'),
+			imageminSvgo = require('gulp-imagemin'),
+			imageminJpegtran = require('imagemin-jpegtran'),
+			imageminOptipng = require('imagemin-optipng'),
+			imageminGifsicle = require('imagemin-gifsicle'),
 			merge = require('merge-stream'),
 			newer = require('gulp-newer'),
 			plumber = require('gulp-plumber'),
@@ -17,11 +21,7 @@ const gulp = require('gulp'),
 			rigger = require('gulp-rigger'),
 			sass = require('gulp-sass'),
 			sourcemaps = require('gulp-sourcemaps'),
-			uglify = require('gulp-uglify'),
-			imageminSvgo = require('gulp-imagemin'),
-			imageminJpegtran = require('imagemin-jpegtran'),
-			imageminOptipng = require('imagemin-optipng'),
-			imageminGifsicle = require('imagemin-gifsicle');
+			uglify = require('gulp-uglify');
 
 // Variable for NODE_ENV environment
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
