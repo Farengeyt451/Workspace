@@ -17,7 +17,11 @@ const gulp = require('gulp'),
 			rigger = require('gulp-rigger'),
 			sass = require('gulp-sass'),
 			sourcemaps = require('gulp-sourcemaps'),
-			uglify = require('gulp-uglify');
+			uglify = require('gulp-uglify'),
+			imageminSvgo = require('gulp-imagemin'),
+			imageminJpegtran = require('imagemin-jpegtran'),
+			imageminOptipng = require('imagemin-optipng'),
+			imageminGifsicle = require('imagemin-gifsicle');
 
 // Variable for NODE_ENV environment
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
@@ -166,7 +170,24 @@ gulp.task('img:build', function () {
 		.pipe(plumber())
 		.pipe(gulpIf(isDevelopment, newer(path.build.img), newer(path.production.img)))
 		.pipe(debug({title: 'Images build:'}))
-		.pipe(gulpIf(!isDevelopment, imagemin ()))
+		.pipe(gulpIf(!isDevelopment, imagemin([
+			imagemin.gifsicle({interlaced: true}),
+			imagemin.optipng({optimizationLevel: 5}),
+			imagemin.jpegtran({progressive: true}),
+			imagemin.svgo({
+				plugins: [
+					{optimizationLevel: 3},
+					{progessive: true},
+					{interlaced: true},
+					{removeViewBox: false},
+					{removeUselessStrokeAndFill: false},
+					{cleanupIDs: false}
+			],
+		})
+	],
+	{
+		verbose: true
+	})))
 		.pipe(gulpIf(isDevelopment, gulp.dest(path.build.img), gulp.dest(path.production.img)))
 		.pipe(bs.stream());
 });
